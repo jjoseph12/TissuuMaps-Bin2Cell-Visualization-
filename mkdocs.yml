@@ -1,0 +1,16 @@
+site_name: Bin2Cell Explorer Docs
+site_description: Developer documentation for the Bin2Cell Explorer TissUUmaps plugin.
+theme:
+  name: material
+  palette:
+    scheme: default
+nav:
+  - Overview: index.md
+  - Usage Guide: usage.md
+  - Developer Guide: developer-guide.md
+  - Architecture: architecture.md
+  - Design Rationale: design-rationale.md
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true

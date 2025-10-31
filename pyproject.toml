@@ -1,0 +1,24 @@
+[project]
+name = "tissuumaps-plugins"
+version = "0.1.0"
+requires-python = ">=3.9"
+description = "Custom TissUUmaps plugins for Bin2Cell exploration and CircleSeg overlays."
+dependencies = [
+    "anndata>=0.9",
+    "flask>=2.3",
+    "matplotlib>=3.7",
+    "numpy>=1.24",
+    "imagecodecs>=2024.1",
+    "scikit-image>=0.20",
+    "scipy>=1.9",
+    "tissuumaps>=3.2",
+    "PySide6>=6.7,<6.8",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=7.4",
+    "mypy>=1.8",
+    "mkdocs>=1.5",
+    "mkdocs-material>=9.5",
+]
