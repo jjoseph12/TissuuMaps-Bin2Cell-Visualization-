@@ -45,7 +45,7 @@ The environment installs runtime libraries (`anndata`, `numpy`, `scipy`, `scikit
    ```
    (PySide6 6.7 LTS mirrors the uv lock; adjust if you need a newer Qt.)
 4. Launch the packaged app from the activated shell:  
-   `/Applications/TissUUmaps.app/Contents/MacOS/TissUUmaps`
+   `tissuumaps`
 
 When you are finished, run `deactivate` to exit the virtual environment.
 
