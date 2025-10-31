@@ -14,13 +14,10 @@ Bin2Cell Explorer (backend/UI for binned gene overlays) can be developed with ei
 4. Launch TissUUmaps with the managed environment:  
    `uv run tissuumaps`  
    (Optional: silence the Skia fallback log with `QTWEBENGINE_CHROMIUM_FLAGS="--disable-features=SkiaGraphite"`.)
-5. Need an interactive shell?  
+5. For an interactive shell  
    `source .venv/bin/activate` → run commands → `deactivate`
 
 Common uv commands:
-- `uv run python plugins/Bin2CellExplorer.py` — one-off scripts/tests
-- `uv run pytest` — run the test suite (when present)
-- `uv run --group dev mkdocs serve` — live preview documentation
 - `uv add <package>` / `uv add --group dev <package>` — add runtime/dev deps
 - `uv tree` — inspect the locked dependency graph
 
@@ -59,7 +56,7 @@ When you are finished, run `deactivate` to exit the virtual environment.
 - The browse dialog filters the relevant extensions and rejects folders to prevent loading mistakes.
 
 ## Notes & tips
-- PySide6 is pinned to the 6.7 line to avoid noisy Skia “Graphite → Ganesh” fallback messages; drop the `<6.8` pin if you prefer the latest Qt (expect the log noise to return).
+- PySide6 is pinned to the 6.7 line to avoid noisy Skia “Graphite → Ganesh” fallback messages if you are on MacOS and not on the most recent Chromium browswer; drop the `<6.8` pin if you prefer the latest Qt (expect the log noise to return).
 - Gene overlays support custom colours: choose **Solid** for a single hex colour or stay on **Gradient** and tweak the gradient colour picker to bias the ramp.
 - `uv.lock` captures exact versions for the uv workflow; `.venv/` is ignored by git in both setups.
 - Logs, presets, and cached state live under `~/.tissuumaps/plugins/Bin2CellExplorer/`.
