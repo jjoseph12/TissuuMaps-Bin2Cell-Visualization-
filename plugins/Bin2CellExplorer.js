@@ -21,7 +21,7 @@ Bin2CellExplorer = {
     overlay_type: { label: "Overlay type", type: "select", default: "gene", options: ["gene", "observation"] },
     genes: { label: "Gene(s) (comma separated)", type: "text", default: "COL1A1" },
     obs_col: { label: "Observation column", type: "select", default: "" },
-    category: { label: "Category filter (optional)", type: "text", default: "" },
+    category: { label: "Category filter (optional)", type: "select", default: "" },
     render_mode: { label: "Render mode", type: "select", default: "fill", options: ["fill", "outline"] },
     color_mode: { label: "Gene color mode", type: "select", default: "gradient", options: ["gradient", "binary", "solid"] },
     gradient_color: { label: "Gradient color (optional)", type: "text", default: "#4285f4", attributes: { type: "color" } },
@@ -36,10 +36,8 @@ Bin2CellExplorer = {
     overlay_alpha: { label: "Overlay alpha (0-1)", type: "number", default: 0.5 },
     highlight_color: { label: "Highlight color", type: "text", default: "#39ff14" },
     highlight_width: { label: "Highlight width", type: "number", default: 2.0 },
-    all_expanded_outline: { label: "Show expanded outlines", type: "checkbox", default: true },
+    all_expanded_outline: { label: "Show expanded outlines", type: "checkbox", default: false },
     all_nuclei_outline: { label: "Show nuclei outlines", type: "checkbox", default: false },
-    show_tile_grid: { label: "Show tile grid", type: "checkbox", default: false },
-    show_centroids: { label: "Show centroids", type: "checkbox", default: false },
     apply_overlay_btn: { label: "Update overlay", type: "button" },
 
     _sec_export: { label: "Export & Presets", type: "section", collapsed: true },
@@ -57,14 +55,15 @@ Bin2CellExplorer.state = {
   datasetLoaded: false,
   tiles: [],
   obsColumns: [],
+  obsMetadata: {},
+  obsMetadataRequests: {},
+  obsCategorySelections: {},
+  pendingCategoryValue: "",
+  selectedObsCol: null,
   genesPreview: [],
   overlays: null,
   layers: {},
   presets: {},
-  zoomHandlerAttached: false,
-  centroidBaseRadius: 18,
-  tileGridGroup: null,
-  tileGridVisible: false,
   slideShape: null,
   tileOverviewCanvas: null,
   tileOverviewScale: null,
@@ -93,10 +92,12 @@ Bin2CellExplorer.init = function(container) {
   overviewTitle.textContent = "Tile overview";
   const overviewCanvas = document.createElement("canvas");
   overviewCanvas.id = "Bin2CellExplorer_tile_overview";
-  overviewCanvas.width = 220;
-  overviewCanvas.height = 220;
-  overviewCanvas.style.border = "1px solid #ccc";
-  overviewCanvas.style.background = "#f8f9fa";
+  overviewCanvas.width = 320;
+  overviewCanvas.height = 320;
+  overviewCanvas.style.border = "1px solid rgba(0,0,0,0.1)";
+  overviewCanvas.style.borderRadius = "12px";
+  overviewCanvas.style.background = "linear-gradient(135deg, #fdfbfb, #ebedee)";
+  overviewCanvas.style.boxShadow = "0 6px 18px rgba(15,23,42,0.15)";
   overviewCanvas.style.cursor = "pointer";
   const overviewHint = document.createElement("div");
   overviewHint.className = "small text-muted mt-1";
@@ -152,9 +153,6 @@ Bin2CellExplorer.inputTrigger = function(inputName) {
     case "preset_select":
       Bin2CellExplorer.populatePresetPreview();
       break;
-    case "show_tile_grid":
-      Bin2CellExplorer.toggleTileGrid(Bin2CellExplorer.isChecked("show_tile_grid"));
-      break;
     default:
       break;
   }
@@ -167,6 +165,8 @@ Bin2CellExplorer.toggleOverlayInputs = function(mode) {
   obsIds.forEach((id) => Bin2CellExplorer.toggleParam(id, mode === "observation"));
   if (mode === "gene") {
     Bin2CellExplorer.updateGeneColorControls();
+  } else if (mode === "observation" && Bin2CellExplorer.state.datasetLoaded) {
+    Bin2CellExplorer.populateCategorySelect(Bin2CellExplorer.get("obs_col") || "");
   }
 };
 
@@ -257,6 +257,11 @@ Bin2CellExplorer.onDatasetLoaded = function(data) {
   Bin2CellExplorer.state.datasetLoaded = true;
   Bin2CellExplorer.state.tiles = data.tiles || [];
   Bin2CellExplorer.state.obsColumns = data.obs_columns || [];
+  Bin2CellExplorer.state.obsMetadata = {};
+  Bin2CellExplorer.state.obsMetadataRequests = {};
+  Bin2CellExplorer.state.obsCategorySelections = {};
+  Bin2CellExplorer.state.pendingCategoryValue = "";
+  Bin2CellExplorer.state.selectedObsCol = null;
   Bin2CellExplorer.state.genesPreview = data.genes_preview || [];
   Bin2CellExplorer.state.datasetId = data.dataset_id;
   Bin2CellExplorer.state.hePath = data.he_path;
@@ -264,6 +269,7 @@ Bin2CellExplorer.onDatasetLoaded = function(data) {
 
   Bin2CellExplorer.populateSelect("tile_id", Bin2CellExplorer.state.tiles.map(function(tile) { return tile.id; }));
   Bin2CellExplorer.populateSelect("obs_col", Bin2CellExplorer.state.obsColumns);
+  Bin2CellExplorer.populateSelect("category", [""]);
   Bin2CellExplorer.populateSelect("obsm_key", data.available_obsm || [], data.obsm_key);
 
   if (Bin2CellExplorer.state.tiles.length) {
@@ -271,17 +277,19 @@ Bin2CellExplorer.onDatasetLoaded = function(data) {
     Bin2CellExplorer.state.selectedTileId = Bin2CellExplorer.state.tiles[0].id;
   }
   if (Bin2CellExplorer.state.obsColumns.length) {
-    Bin2CellExplorer.set("obs_col", Bin2CellExplorer.state.obsColumns[0]);
+    const firstObs = Bin2CellExplorer.state.obsColumns[0];
+    Bin2CellExplorer.set("obs_col", firstObs);
+    Bin2CellExplorer.onObsColumnChange(firstObs);
+  } else {
+    Bin2CellExplorer.populateCategorySelect("");
   }
 
   Bin2CellExplorer.requestPresets();
 
-  if (Bin2CellExplorer.state.tileGridVisible) {
-    Bin2CellExplorer.drawTileGrid();
-  }
-
   Bin2CellExplorer.renderTileOverview();
   Bin2CellExplorer.attachTileSelectListener();
+  Bin2CellExplorer.attachObsSelectListener();
+  Bin2CellExplorer.attachCategorySelectListener();
 
   Bin2CellExplorer.setStatus("Dataset loaded (" + Bin2CellExplorer.state.tiles.length + " tiles)");
 };
@@ -294,6 +302,20 @@ Bin2CellExplorer.populateSelect = function(name, options, selected) {
   });
   if (selected !== undefined && selected !== null && selected !== "") {
     interfaceUtils.setValueForElement(domId, "value", String(selected));
+  }
+  if (name === "category") {
+    const selectEl = document.getElementById(domId);
+    if (selectEl && selectEl.options.length) {
+      for (let i = 0; i < selectEl.options.length; i += 1) {
+        if (selectEl.options[i].value === "") {
+          selectEl.options[i].text = selectEl.options[i].text || "All categories";
+          if (!selectEl.options[i].text.trim()) {
+            selectEl.options[i].text = "All categories";
+          }
+          break;
+        }
+      }
+    }
   }
 };
 
@@ -309,6 +331,92 @@ Bin2CellExplorer.attachTileSelectListener = function() {
     }
   });
   select.__bin2cell_tile_listener = true;
+};
+
+Bin2CellExplorer.attachObsSelectListener = function() {
+  const select = document.getElementById("Bin2CellExplorer_obs_col");
+  if (!select || select.__bin2cell_obs_listener) return;
+  select.addEventListener("change", function() {
+    Bin2CellExplorer.onObsColumnChange(select.value || "");
+  });
+  select.__bin2cell_obs_listener = true;
+};
+
+Bin2CellExplorer.attachCategorySelectListener = function() {
+  const select = document.getElementById("Bin2CellExplorer_category");
+  if (!select || select.__bin2cell_category_listener) return;
+  select.addEventListener("change", function() {
+    const col = Bin2CellExplorer.get("obs_col");
+    if (col) {
+      Bin2CellExplorer.state.obsCategorySelections[col] = select.value || "";
+    }
+  });
+  select.__bin2cell_category_listener = true;
+};
+
+Bin2CellExplorer.onObsColumnChange = function(column, options) {
+  if (!Bin2CellExplorer.state.datasetLoaded) return;
+  const value = column || "";
+  Bin2CellExplorer.state.selectedObsCol = value || null;
+  const opts = options || {};
+  if (!opts.keepCategory) {
+    const cached = value ? Bin2CellExplorer.state.obsCategorySelections[value] : "";
+    Bin2CellExplorer.state.pendingCategoryValue = cached || "";
+    interfaceUtils.setValueForElement("Bin2CellExplorer_category", "value", "");
+  }
+  Bin2CellExplorer.ensureObsMetadata(value);
+};
+
+Bin2CellExplorer.ensureObsMetadata = function(column) {
+  const col = column || "";
+  Bin2CellExplorer.populateCategorySelect(col);
+  if (!col) return;
+  if (Bin2CellExplorer.state.obsMetadata[col]) {
+    Bin2CellExplorer.populateCategorySelect(col);
+    return;
+  }
+  if (Bin2CellExplorer.state.obsMetadataRequests[col]) {
+    return;
+  }
+  Bin2CellExplorer.state.obsMetadataRequests[col] = true;
+  Bin2CellExplorer.api(
+    "describe_obs_column",
+    { obs_col: col },
+    function(resp) {
+      delete Bin2CellExplorer.state.obsMetadataRequests[col];
+      const data = Bin2CellExplorer.ensureObject(resp) || {};
+      Bin2CellExplorer.state.obsMetadata[col] = data;
+      Bin2CellExplorer.populateCategorySelect(col);
+    },
+    function(jqXHR, textStatus, errorThrown) {
+      delete Bin2CellExplorer.state.obsMetadataRequests[col];
+      Bin2CellExplorer.handleError(jqXHR, textStatus, errorThrown);
+    }
+  );
+};
+
+Bin2CellExplorer.populateCategorySelect = function(column) {
+  const metadata = column ? Bin2CellExplorer.state.obsMetadata[column] : null;
+  const categories = (metadata && Array.isArray(metadata.categories)) ? metadata.categories.slice() : [];
+  const options = [""].concat(categories);
+  let desired = Bin2CellExplorer.state.pendingCategoryValue;
+  if (!desired) {
+    desired = Bin2CellExplorer.get("category") || "";
+  }
+  if (options.indexOf(desired) === -1) {
+    desired = "";
+  }
+  Bin2CellExplorer.populateSelect("category", options, desired);
+  if (desired && Bin2CellExplorer.state.pendingCategoryValue === desired) {
+    Bin2CellExplorer.state.pendingCategoryValue = "";
+  }
+  if (metadata && Array.isArray(metadata.categories) && column) {
+    if (desired) {
+      Bin2CellExplorer.state.obsCategorySelections[column] = desired;
+    } else {
+      delete Bin2CellExplorer.state.obsCategorySelections[column];
+    }
+  }
 };
 
 Bin2CellExplorer.requestOverlay = function() {
@@ -350,21 +458,24 @@ Bin2CellExplorer.renderTileOverview = function() {
 
   const slideHeight = shape[0];
   const slideWidth = shape[1];
-  const margin = 10;
-  const maxWidth = 220;
-  const maxHeight = 220;
+  const margin = 16;
+  const maxWidth = 320;
+  const maxHeight = 320;
   const scale = Math.min((maxWidth - margin * 2) / slideWidth, (maxHeight - margin * 2) / slideHeight);
   const canvasWidth = Math.ceil(slideWidth * scale + margin * 2);
   const canvasHeight = Math.ceil(slideHeight * scale + margin * 2);
   canvas.width = canvasWidth;
   canvas.height = canvasHeight;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#f8f9fa";
+  const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+  gradient.addColorStop(0, "#fdfbfb");
+  gradient.addColorStop(1, "#ebedee");
+  ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   const selectedId = Bin2CellExplorer.state.selectedTileId;
   ctx.lineWidth = 1;
-  ctx.strokeStyle = "#9aa0a6";
+  ctx.strokeStyle = "rgba(60,60,60,0.5)";
   ctx.font = "10px sans-serif";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
@@ -451,8 +562,7 @@ Bin2CellExplorer.collectOverlayParams = function() {
     highlight_color: Bin2CellExplorer.get("highlight_color"),
     highlight_width: Bin2CellExplorer.get("highlight_width"),
     all_expanded_outline: Bin2CellExplorer.isChecked("all_expanded_outline"),
-    all_nuclei_outline: Bin2CellExplorer.isChecked("all_nuclei_outline"),
-    show_centroids: Bin2CellExplorer.isChecked("show_centroids")
+    all_nuclei_outline: Bin2CellExplorer.isChecked("all_nuclei_outline")
   };
   return params;
 };
@@ -524,13 +634,30 @@ Bin2CellExplorer.applySelectedPreset = function() {
   }
   const config = Bin2CellExplorer.state.presets[select];
   if (!config) return;
+  let pendingCategory = null;
+  let pendingObsCol = null;
   Object.keys(config).forEach(function(key) {
+    if (key === "category") {
+      pendingCategory = config[key] || "";
+      return;
+    }
     const domId = "Bin2CellExplorer_" + key;
     if (document.getElementById(domId)) {
       interfaceUtils.setValueForElement(domId, "value", config[key]);
+      if (key === "obs_col") {
+        pendingObsCol = config[key] || "";
+      }
     }
   });
   Bin2CellExplorer.toggleOverlayInputs(config.overlay_type || Bin2CellExplorer.get("overlay_type"));
+  if (pendingCategory !== null) {
+    Bin2CellExplorer.state.pendingCategoryValue = pendingCategory;
+  }
+  if (pendingObsCol !== null) {
+    Bin2CellExplorer.onObsColumnChange(pendingObsCol, { keepCategory: pendingCategory !== null });
+  } else if (pendingCategory !== null) {
+    Bin2CellExplorer.populateCategorySelect(Bin2CellExplorer.get("obs_col") || "");
+  }
   Bin2CellExplorer.setStatus("Preset applied: " + select);
 };
 
@@ -599,8 +726,7 @@ Bin2CellExplorer.renderOverlay = function(data) {
   Bin2CellExplorer.state.layers = {
     gene: {},
     categories: {},
-    outlines: {},
-    centroids: {}
+    outlines: {}
   };
 
   if (data.overlay_type === "gene") {
@@ -612,12 +738,6 @@ Bin2CellExplorer.renderOverlay = function(data) {
   }
 
   Bin2CellExplorer.drawOutlines(layer, data);
-  Bin2CellExplorer.drawCentroids(layer, data);
-  if (Bin2CellExplorer.state.tileGridVisible) {
-    Bin2CellExplorer.drawTileGrid();
-  }
-  Bin2CellExplorer.attachZoomHandler();
-  Bin2CellExplorer.updateScales();
   Bin2CellExplorer.renderTileOverview();
 };
 
@@ -634,79 +754,6 @@ Bin2CellExplorer.ensureSvgLayer = function() {
   return Bin2CellExplorer.state.d3layer;
 };
 
-Bin2CellExplorer.toggleTileGrid = function(visible) {
-  Bin2CellExplorer.state.tileGridVisible = visible;
-  if (!visible) {
-    if (Bin2CellExplorer.state.tileGridGroup) {
-      Bin2CellExplorer.state.tileGridGroup.remove();
-      Bin2CellExplorer.state.tileGridGroup = null;
-    }
-    return;
-  }
-  if (!Bin2CellExplorer.state.datasetLoaded || !Bin2CellExplorer.state.tiles.length) {
-    return;
-  }
-  Bin2CellExplorer.drawTileGrid();
-};
-
-Bin2CellExplorer.drawTileGrid = function() {
-  const layer = Bin2CellExplorer.ensureSvgLayer();
-  if (!layer) return;
-  const tiles = Bin2CellExplorer.state.tiles || [];
-  if (!tiles.length) return;
-  const viewer = tmapp[tmapp["object_prefix"] + "_viewer"];
-  if (!viewer || !viewer.world.getItemCount()) return;
-  const tiledImage = viewer.world.getItemAt(0);
-
-  if (Bin2CellExplorer.state.tileGridGroup) {
-    Bin2CellExplorer.state.tileGridGroup.remove();
-    Bin2CellExplorer.state.tileGridGroup = null;
-  }
-
-  const group = layer.append("g").attr("class", "bin2cell-tile-grid");
-  tiles.forEach(function(tile) {
-    const corners = [
-      { x: tile.c0, y: tile.r0 },
-      { x: tile.c1, y: tile.r0 },
-      { x: tile.c1, y: tile.r1 },
-      { x: tile.c0, y: tile.r1 },
-      { x: tile.c0, y: tile.r0 }
-    ];
-    let path = "";
-    corners.forEach(function(pt, idx) {
-      const vp = Bin2CellExplorer.imageToViewport(pt.x, pt.y, tiledImage);
-      path += (idx === 0 ? "M" : "L") + vp.x + " " + vp.y;
-    });
-    group.append("path")
-      .attr("d", path)
-      .attr("fill", "none")
-      .attr("stroke", "rgba(255,215,0,0.6)")
-      .attr("stroke-width", 1.0)
-      .attr("vector-effect", "non-scaling-stroke")
-      .attr("pointer-events", "none");
-
-    const centerX = (tile.c0 + tile.c1) / 2;
-    const centerY = (tile.r0 + tile.r1) / 2;
-    const centerVp = Bin2CellExplorer.imageToViewport(centerX, centerY, tiledImage);
-    group.append("text")
-      .attr("x", centerVp.x)
-      .attr("y", centerVp.y)
-      .attr("text-anchor", "middle")
-      .attr("alignment-baseline", "middle")
-      .attr("fill", "#ffffff")
-      .attr("stroke", "rgba(0,0,0,0.7)")
-      .attr("stroke-width", 1.2)
-      .style("paint-order", "stroke")
-      .style("font-weight", "600")
-      .style("font-size", "14px")
-      .attr("pointer-events", "none")
-      .attr("class", "bin2cell-tile-label")
-      .text(tile.id);
-  });
-
-  Bin2CellExplorer.state.tileGridGroup = group;
-  Bin2CellExplorer.updateScales();
-};
 
 Bin2CellExplorer.drawGeneOverlay = function(layer, overlay) {
   const gene = overlay.gene;
@@ -786,67 +833,6 @@ Bin2CellExplorer.drawOutlines = function(layer, data) {
   Bin2CellExplorer.state.layers.outlines.group = outlinesGroup;
 };
 
-Bin2CellExplorer.drawCentroids = function(layer, data) {
-  const centroids = data.centroids || [];
-  if (!centroids.length) return;
-
-  const viewer = tmapp[tmapp["object_prefix"] + "_viewer"];
-  if (!viewer || !viewer.world.getItemCount()) return;
-
-  const tiledImage = viewer.world.getItemAt(0);
-  const parent = layer.append("g").attr("class", "bin2cell-centroids-layer");
-
-  centroids.forEach(function(bundle) {
-    const bundleGroup = parent.append("g").attr("class", "bin2cell-centroid-bundle");
-    const points = bundle.points || bundle;
-    (points || []).forEach(function(point) {
-      const vp = Bin2CellExplorer.imageToViewport(point.x, point.y, tiledImage);
-      bundleGroup.append("circle")
-        .attr("cx", vp.x)
-        .attr("cy", vp.y)
-        .attr("r", 2.5)
-        .attr("fill", "rgba(255,255,255,0.7)")
-        .attr("stroke", "rgba(0,0,0,0.6)")
-        .attr("stroke-width", 0.5 / viewer.viewport.getZoom())
-        .attr("class", "bin2cell-centroid");
-    });
-  });
-
-  Bin2CellExplorer.state.layers.centroids.group = parent;
-};
-
-Bin2CellExplorer.attachZoomHandler = function() {
-  if (Bin2CellExplorer.state.zoomHandlerAttached) return;
-  const viewer = tmapp[tmapp["object_prefix"] + "_viewer"];
-  if (!viewer) return;
-  viewer.addHandler("animation", Bin2CellExplorer.updateScales);
-  viewer.addHandler("open", Bin2CellExplorer.updateScales);
-  viewer.addHandler("zoom", Bin2CellExplorer.updateScales);
-  Bin2CellExplorer.state.zoomHandlerAttached = true;
-};
-
-Bin2CellExplorer.updateScales = function() {
-  const viewer = tmapp[tmapp["object_prefix"] + "_viewer"];
-  if (!viewer) return;
-  const zoom = viewer.viewport.getZoom(true);
-  const radius = Bin2CellExplorer.state.centroidBaseRadius / zoom;
-  if (Bin2CellExplorer.state.layers.centroids.group) {
-    Bin2CellExplorer.state.layers.centroids.group.selectAll("circle").attr("r", radius);
-  }
-  if (Bin2CellExplorer.state.tileGridGroup) {
-    const strokeWidth = Math.min(Math.max(1 / zoom, 0.3), 2.5);
-    Bin2CellExplorer.state.tileGridGroup.selectAll("path").attr("stroke-width", strokeWidth);
-    const fontSize = Math.min(Math.max(16 / zoom, 5), 40);
-    const labelStroke = Math.min(Math.max(1 / zoom, 0.2), 2);
-    Bin2CellExplorer.state.tileGridGroup.selectAll("text")
-      .attr("font-size", fontSize)
-      .attr("stroke-width", labelStroke);
-    // Hide labels when zoomed out too far to avoid screen flooding
-    const visible = zoom > 0.03;
-    Bin2CellExplorer.state.tileGridGroup.selectAll("text")
-      .style("display", visible ? null : "none");
-  }
-};
 
 Bin2CellExplorer.imageToViewport = function(x, y, tiledImage) {
   const viewer = tmapp[tmapp["object_prefix"] + "_viewer"];

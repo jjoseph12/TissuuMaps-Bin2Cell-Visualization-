@@ -27,6 +27,8 @@ LOGGER = logging.getLogger(__name__)
 _GLOBAL_STATE: Dict[str, object] = {}
 _FILE_DIALOG_HELPER: Optional["FileDialogHelper"] = None
 
+OBS_CATEGORY_LIMIT = 256
+
 
 def _rgba_to_css(rgba: Tuple[float, float, float, float], *, alpha_override: Optional[float] = None) -> str:
     r, g, b, a = rgba
@@ -43,7 +45,7 @@ def _get_cmap(cmap: object) -> "colors.Colormap":
 
 def _colormap_sample(cmap: object, value: float, alpha: Optional[float] = None) -> str:
     cmap_obj = _get_cmap(cmap)
-    rgba = cmap(np.clip(value, 0.0, 1.0))
+    rgba = cmap_obj(np.clip(value, 0.0, 1.0))
     return _rgba_to_css(rgba, alpha_override=alpha)
 
 
@@ -58,6 +60,16 @@ def _sample_gradient(cmap: object, steps: int = 8) -> List[Tuple[float, str]]:
 
 def _unique_sorted(iterable: Iterable) -> List:
     return sorted(set(iterable))
+
+
+def _color_to_css(value: object, *, alpha_override: Optional[float] = None) -> Optional[str]:
+    if value is None:
+        return None
+    try:
+        rgba = colors.to_rgba(value)
+    except ValueError:
+        return None
+    return _rgba_to_css(rgba, alpha_override=alpha_override)
 
 
 @dataclass(frozen=True)
@@ -116,6 +128,7 @@ class B2CContext:
 
         self._gene_cache: Dict[str, np.ndarray] = {}
         self._obs_cache: Dict[str, np.ndarray] = {}
+        self._obs_meta_cache: Dict[str, Dict[str, object]] = {}
 
         self._available_obsm = [
             k
@@ -156,7 +169,7 @@ class B2CContext:
 
     @property
     def obs_columns(self) -> List[str]:
-        return list(map(str, self.adata.obs.columns))
+       return list(map(str, self.adata.obs.columns))
 
     def crop_dense(self, r0: int, r1: int, c0: int, c1: int) -> Tuple[np.ndarray, np.ndarray]:
         he = self.he[r0:r1, c0:c1]
@@ -179,6 +192,55 @@ class B2CContext:
                 raise KeyError(f"Column '{column}' not found in AnnData.obs.")
             self._obs_cache[column] = self.adata.obs[column].to_numpy()
         return self._obs_cache[column]
+
+    def obs_metadata(self, column: str) -> Dict[str, object]:
+        if column not in self.adata.obs.columns:
+            raise KeyError(f"Column '{column}' not found in AnnData.obs.")
+        cached = self._obs_meta_cache.get(column)
+        if cached is not None:
+            return cached
+        metadata = self._build_obs_metadata(column)
+        self._obs_meta_cache[column] = metadata
+        return metadata
+
+    def _build_obs_metadata(self, column: str) -> Dict[str, object]:
+        series = self.adata.obs[column]
+        dtype = getattr(series, "dtype", None)
+        categories: List[str] = []
+        limit_hit = False
+
+        if dtype is not None and hasattr(dtype, "categories"):
+            cat_values = list(getattr(series.cat, "categories", getattr(dtype, "categories", [])))
+            categories = [str(cat) for cat in cat_values]
+        elif dtype is not None and getattr(dtype, "kind", "") in {"O", "U", "S"}:
+            raw_unique = series.dropna().astype(str).unique()
+            limit_hit = raw_unique.size > OBS_CATEGORY_LIMIT
+            if not limit_hit:
+                categories = _unique_sorted(map(str, raw_unique.tolist()))
+        else:
+            limit_hit = True
+
+        color_key = f"{column}_colors"
+        raw_colors = self.adata.uns.get(color_key)
+        color_map: Dict[str, str] = {}
+        if isinstance(raw_colors, (list, tuple, np.ndarray)) and categories:
+            for cat, raw_color in zip(categories, raw_colors):
+                if raw_color is None:
+                    continue
+                raw_color_str = str(raw_color)
+                if raw_color_str:
+                    color_map[str(cat)] = raw_color_str
+
+        return {
+            "categories": categories,
+            "color_map": color_map,
+            "category_limit_hit": limit_hit,
+        }
+
+    def obs_color_map(self, column: str) -> Dict[str, str]:
+        meta = self.obs_metadata(column)
+        colors_dict = meta.get("color_map") or {}
+        return dict(colors_dict)  # shallow copy
 
 
 def make_tiles(
@@ -691,6 +753,23 @@ class Plugin:
         except Exception as exc:
             return self._error_from_exception(exc, "Failed to list observation columns")
 
+    def describe_obs_column(self, params: Dict):
+        try:
+            ctx = self._ensure_context()
+            obs_col = params.get("obs_col")
+            if not obs_col:
+                raise ValueError("Provide 'obs_col'.")
+            meta = ctx.obs_metadata(obs_col)
+            payload = {
+                "obs_col": obs_col,
+                "categories": meta.get("categories", []),
+                "color_map": meta.get("color_map", {}),
+                "category_limit_hit": meta.get("category_limit_hit", False),
+            }
+            return self._json_response(payload)
+        except Exception as exc:
+            return self._error_from_exception(exc, "Failed to describe observation column")
+
     def list_genes(self, params: Dict):
         try:
             ctx = self._ensure_context()
@@ -868,6 +947,8 @@ class Plugin:
 
         lab_exp: np.ndarray = entry["lab_exp"]
         polygons_exp: Dict[int, List[List[List[float]]]] = entry["polygons_exp"]
+        polygons_raw: Dict[int, List[List[List[float]]]] = entry["polygons_raw"]
+        polygons_raw: Dict[int, List[List[List[float]]]] = entry["polygons_raw"]
         centroid_indices: np.ndarray = entry["centroid_indices"]
         labels_at_centroids: np.ndarray = entry["labels_at_centroids"]
 
@@ -920,9 +1001,10 @@ class Plugin:
                 vmax_local = vmin_local + 1e-6
             norm = colors.Normalize(vmin=vmin_local, vmax=vmax_local)
 
+            feature_polygons = polygons_exp if all_expanded_outline else polygons_raw
             features = []
             for lbl, expr_value in label_expr.items():
-                polygons = polygons_exp.get(lbl)
+                polygons = feature_polygons.get(lbl) or polygons_raw.get(lbl) or polygons_exp.get(lbl)
                 if not polygons:
                     continue
                 if color_mode == "binary":
@@ -1019,6 +1101,7 @@ class Plugin:
 
         lab_exp: np.ndarray = entry["lab_exp"]
         polygons_exp: Dict[int, List[List[List[float]]]] = entry["polygons_exp"]
+        polygons_raw: Dict[int, List[List[List[float]]]] = entry["polygons_raw"]
         centroid_indices: np.ndarray = entry["centroid_indices"]
         labels_at_centroids: np.ndarray = entry["labels_at_centroids"]
 
@@ -1056,28 +1139,57 @@ class Plugin:
                 "legend": {"type": "empty", "message": "No categories found in tile."},
             }
 
+        meta = ctx.obs_metadata(obs_col)
+        ordered_categories = list(meta.get("categories") or [])
+        predefined_colors = dict(meta.get("color_map") or {})
+
         if category_filter:
             allowed_categories = {category_filter}
         else:
             allowed_categories = set(label_to_cat.values())
 
-        categories_sorted = sorted(allowed_categories)
-        cmap = cm.get_cmap(cmap_name, max(1, len(categories_sorted)))
-        cat_to_color = {cat: _rgba_to_css(cmap(i / max(1, len(categories_sorted) - 1)), overlay_alpha) for i, cat in enumerate(categories_sorted)}
+        if ordered_categories:
+            categories_sorted = [cat for cat in ordered_categories if cat in allowed_categories]
+            remainder = [cat for cat in allowed_categories if cat not in categories_sorted]
+            categories_sorted.extend(sorted(remainder))
+        else:
+            categories_sorted = sorted(allowed_categories)
+        if not categories_sorted and allowed_categories:
+            categories_sorted = sorted(allowed_categories)
 
+        cmap_obj = cm.get_cmap(cmap_name, max(1, len(categories_sorted) or 1))
+        denom = max(1, len(categories_sorted) - 1)
+        category_styles: Dict[str, Dict[str, Optional[str]]] = {}
+        for idx, cat in enumerate(categories_sorted):
+            base_color = predefined_colors.get(cat)
+            if base_color:
+                fill_css = _color_to_css(base_color, alpha_override=overlay_alpha) if render_mode == "fill" else None
+                stroke_css = _color_to_css(base_color, alpha_override=1.0)
+                legend_color = base_color
+            else:
+                fraction = idx / denom if denom else 0.0
+                fill_css = _colormap_sample(cmap_obj, fraction, alpha=overlay_alpha) if render_mode == "fill" else None
+                stroke_css = _colormap_sample(cmap_obj, fraction, alpha=1.0)
+                legend_color = stroke_css
+            category_styles[cat] = {
+                "fill": fill_css,
+                "stroke": stroke_css,
+                "legend": legend_color,
+            }
+
+        feature_polygons = polygons_exp if all_expanded_outline else polygons_raw
         features = []
         for lbl, cat in label_to_cat.items():
             if category_filter and cat != category_filter:
                 continue
-            polygons = polygons_exp.get(lbl)
+            polygons = feature_polygons.get(lbl) or polygons_raw.get(lbl) or polygons_exp.get(lbl)
             if not polygons:
                 continue
-            if render_mode == "fill":
-                fill_color = cat_to_color[cat]
-                stroke_color = "#222222"
-            else:
-                fill_color = None
-                stroke_color = cat_to_color[cat]
+            style = category_styles.get(cat)
+            if not style:
+                continue
+            fill_color = style["fill"] if render_mode == "fill" else None
+            stroke_color = style["stroke"] or highlight_color
 
             features.append(
                 {
@@ -1093,7 +1205,10 @@ class Plugin:
         legend = {
             "type": "categorical",
             "obs_col": obs_col,
-            "items": [{"label": cat, "color": cat_to_color[cat]} for cat in categories_sorted],
+            "items": [
+                {"label": cat, "color": (category_styles.get(cat) or {}).get("legend", highlight_color)}
+                for cat in categories_sorted
+            ],
             "legend_outside": legend_outside,
         }
 

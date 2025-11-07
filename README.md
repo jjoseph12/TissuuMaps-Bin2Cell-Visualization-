@@ -58,5 +58,14 @@ When you are finished, run `deactivate` to exit the virtual environment.
 ## Notes & tips
 - PySide6 is pinned to the 6.7 line to avoid noisy Skia “Graphite → Ganesh” fallback messages if you are on MacOS and not on the most recent Chromium browswer; drop the `<6.8` pin if you prefer the latest Qt (expect the log noise to return).
 - Gene overlays support custom colours: choose **Solid** for a single hex colour or stay on **Gradient** and tweak the gradient colour picker to bias the ramp.
+- Observation overlays auto-populate their category dropdowns from AnnData (honouring any `<column>_colors` entries), so hierarchical cluster levels such as `predicted_ClusterFull/Midway/Top` inherit their curated palettes without retyping category names.
 - `uv.lock` captures exact versions for the uv workflow; `.venv/` is ignored by git in both setups.
 - Logs, presets, and cached state live under `~/.tissuumaps/plugins/Bin2CellExplorer/`.
+
+## Bin2Cell expansion knobs
+- **Max bin distance (µm):** Sets the upper bound for how far each nucleus can grow. The plugin converts it to pixels via `distance_px = ceil(max_bin_distance * (bin_um / mpp))`, so doubling the distance or the bin size doubles the halo in pixel space.
+- **Microns per pixel (mpp):** Slide resolution. Lower values mean more pixels per micron, which directly affects the conversion above.
+- **Bin size (µm):** Physical width of the Bin2Cell bins that were used upstream; keeping this value in sync with the preprocessing notebook ensures spatial scaling stays accurate.
+- **Volume ratio:** Only used when `Expand mode = volume_ratio`. Instead of a fixed cap, it inflates each nucleus so the expanded area approximates `volume_ratio × (original area)`; the plugin converts that area delta to a median radial offset and clips it to sane bounds.
+
+All four knobs are linked: the first three determine the pixel distance for `fixed` mode, and `volume_ratio` reuses the same unit conversions when estimating its per-label offsets. Start with the acquisition `mpp`, the Bin2Cell `bin_um`, then adjust `max_bin_distance` (or `volume_ratio`) to control how much the halos overlap.

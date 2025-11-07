@@ -58,7 +58,7 @@ Dataset assets (`.tif/.tiff`, `.npz`, `.h5ad`) can live anywhere on disk. In the
 | File | Purpose |
 | ---- | ------- |
 | `Bin2CellExplorer.py` | Flask plugin backend. Handles dataset loading, caching, overlay generation, exporting, and preset persistence. |
-| `Bin2CellExplorer.js` | Front-end logic. Builds the UI, calls backend endpoints, renders overlays, draws tile grids, and minimap. |
+| `Bin2CellExplorer.js` | Front-end logic. Builds the UI, calls backend endpoints, renders overlays, and drives the minimap. |
 | `Bin2CellExplorer.yml` | Plugin metadata for TissUUmaps. |
 | `he.tiff` / `he.npz` / `P2_CRC_annotated.h5ad` | Sample data used during development and demos. Replace with user data as needed. |
 | `Bin2CellExplorer.log` | Rolling log (one per plugin) capturing load/overlay operations. |
