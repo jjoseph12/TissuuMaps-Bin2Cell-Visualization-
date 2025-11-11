@@ -1,6 +1,10 @@
 # TissUUmaps Plugins
 
-Bin2Cell Explorer (backend/UI for binned gene overlays) can be developed with either the new uv workflow or a traditional pip / virtualenv stack. You can pick whichever toolchain fits they both produce identical dependencies and runtime behaviour.
+[![Documentation](https://img.shields.io/badge/docs-mkdocs-blue)](https://jjoseph12.github.io/TissuuMaps-Bin2Cell-Visualization-/) [![GitHub Pages](https://github.com/jjoseph12/TissuuMaps-Bin2Cell-Visualization-/workflows/Deploy%20Documentation/badge.svg)](https://github.com/jjoseph12/TissuuMaps-Bin2Cell-Visualization-/actions)
+
+ **[View Documentation](https://jjoseph12.github.io/TissuuMaps-Bin2Cell-Visualization-/)** | 🔬 **[Interactive Demo](plugins/Bin2Cell_demo.ipynb)**
+
+Bin2Cell Explorer (backend/UI for binned gene overlays) can be developed with either the new **uv** workflow or a traditional **pip / virtualenv** stack. You can pick whichever toolchain fits best—both produce identical dependencies and runtime behaviour.
 
 ---
 
