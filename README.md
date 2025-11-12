@@ -1,16 +1,20 @@
-# TissUUmaps Plugins
+# Cell Explorer TissUUmaps Plugins
 
 [![Documentation](https://img.shields.io/badge/docs-mkdocs-blue)](https://jjoseph12.github.io/TissuuMaps-Bin2Cell-Visualization-/) [![GitHub Pages](https://github.com/jjoseph12/TissuuMaps-Bin2Cell-Visualization-/workflows/Deploy%20MkDocs%20Site/badge.svg)](https://github.com/jjoseph12/TissuuMaps-Bin2Cell-Visualization-/actions/workflows/deploy-docs.yml)
 
 **[View Documentation](https://jjoseph12.github.io/Cell-Explorer-Documenation/)** | 🔬 **[Interactive Demo](plugins/Bin2Cell_demo.ipynb)**
 
-> ℹ️ GitHub Pages is wired to the **Deploy MkDocs Site** workflow. Ensure *Settings → Pages → Source* is set to **GitHub Actions** so the published site reflects `mkdocs.yml` rather than the repository README.
 
-Bin2Cell Explorer (backend/UI for binned gene overlays) can be developed with either the new **uv** workflow or a traditional **pip / virtualenv** stack. You can pick whichever toolchain fits best—both produce identical dependencies and runtime behaviour.
+Cell Explorer (backend/UI for binned gene overlays) can be developed with the uv workflow or a traditional pip / virtualenv stack. You can pick whichever toolchain fits best—both produce identical dependencies and runtime behaviour.
+
+I recomend using uv since its faster!
+
+
+
 
 ---
 
-## Option A — UV-managed environment
+## Recommended UV-managed environment
 1. Install uv (once):  
    `curl -LsSf https://astral.sh/uv/install.sh | sh`
 2. Make the shim available (add to `~/.zshrc` or run per shell):  
@@ -31,7 +35,9 @@ The environment installs runtime libraries (`anndata`, `numpy`, `scipy`, `scikit
 
 ---
 
-## Option B — pip / virtualenv
+
+
+## Option B pip / virtualenv
 1. Create and activate a virtual environment:
    ```bash
    cd ~/.tissuumaps
