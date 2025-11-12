@@ -86,9 +86,25 @@ Bin2CellExplorer.state = {
   singleTileMode: false
 };
 
+Bin2CellExplorer._prefixes = ["Bin2CellExplorer_", "CellExplorer_"];
+Bin2CellExplorer._findElement = function(name) {
+  for (let i = 0; i < Bin2CellExplorer._prefixes.length; i += 1) {
+    const el = document.getElementById(Bin2CellExplorer._prefixes[i] + name);
+    if (el) return el;
+  }
+  return null;
+};
+Bin2CellExplorer._domId = function(name) {
+  for (let i = 0; i < Bin2CellExplorer._prefixes.length; i += 1) {
+    const id = Bin2CellExplorer._prefixes[i] + name;
+    if (document.getElementById(id)) return id;
+  }
+  // Prefer the filename-based prefix if nothing is mounted yet.
+  return "CellExplorer_" + name;
+};
+
 Bin2CellExplorer.get = function(name) {
-  const baseId = "Bin2CellExplorer_" + name;
-  let element = document.getElementById(baseId);
+  let element = Bin2CellExplorer._findElement(name);
   if (!element) {
     return "";
   }
@@ -115,8 +131,7 @@ Bin2CellExplorer.get = function(name) {
 };
 
 Bin2CellExplorer.set = function(name, value) {
-  const baseId = "Bin2CellExplorer_" + name;
-  let element = document.getElementById(baseId);
+  let element = Bin2CellExplorer._findElement(name);
   if (!element) return;
   if (!(element.matches && element.matches("input, select, textarea"))) {
     const nested = element.querySelector("input, select, textarea");
@@ -252,8 +267,7 @@ Bin2CellExplorer.toggleOverlayInputs = function(mode) {
 };
 
 Bin2CellExplorer.toggleParam = function(name, visible) {
-  const domId = "Bin2CellExplorer_" + name;
-  const element = document.getElementById(domId);
+  const element = Bin2CellExplorer._findElement(name);
   if (!element) return;
   let wrapper = element.closest(".form-group, .row, .input-group");
   if (!wrapper) {
@@ -276,7 +290,7 @@ Bin2CellExplorer.ensureObject = function(payload) {
 };
 
 Bin2CellExplorer.setStatus = function(msg) {
-  const status = document.getElementById("Bin2CellExplorer_status");
+  const status = document.getElementById("Bin2CellExplorer_status") || document.getElementById("CellExplorer_status");
   if (status) status.textContent = msg || "";
 };
 
@@ -311,7 +325,7 @@ Bin2CellExplorer.browseForFile = function(field) {
       }
       // Set value robustly
       Bin2CellExplorer.set(field, data.path);
-      const el = document.getElementById("Bin2CellExplorer_" + field);
+      const el = Bin2CellExplorer._findElement(field);
       if (el) {
         el.value = String(data.path);
         el.setAttribute("value", String(data.path));
@@ -384,7 +398,7 @@ Bin2CellExplorer.onWebFilePicked = function(field, absolutePath) {
   }
   // Set value robustly
   Bin2CellExplorer.set(field, absolutePath);
-  const el = document.getElementById("Bin2CellExplorer_" + field);
+  const el = Bin2CellExplorer._findElement(field);
   if (el) {
     el.value = String(absolutePath);
     el.setAttribute("value", String(absolutePath));
@@ -463,26 +477,26 @@ Bin2CellExplorer.onDatasetLoaded = function(data) {
   // Update the input field with the normalized path (relative for web server, absolute for standalone)
   // This prevents TissUUmaps from trying to add the layer with the wrong path format
   if (data.he_path) {
-    interfaceUtils.setValueForElement("Bin2CellExplorer_he_path", "value", data.he_path);
+    interfaceUtils.setValueForElement(Bin2CellExplorer._domId("he_path"), "value", data.he_path);
   }
 
   if (typeof data.tile_cache_size !== "undefined") {
-    interfaceUtils.setValueForElement("Bin2CellExplorer_tile_cache_size", "value", data.tile_cache_size);
+    interfaceUtils.setValueForElement(Bin2CellExplorer._domId("tile_cache_size"), "value", data.tile_cache_size);
   }
   if (typeof data.stage_to_local !== "undefined") {
     Bin2CellExplorer.setCheckbox("stage_to_local", !!data.stage_to_local);
   }
   if (typeof data.stage_root !== "undefined" && data.stage_root !== null) {
-    interfaceUtils.setValueForElement("Bin2CellExplorer_stage_root", "value", data.stage_root || "");
+    interfaceUtils.setValueForElement(Bin2CellExplorer._domId("stage_root"), "value", data.stage_root || "");
   }
   if (typeof data.warm_cache !== "undefined") {
     Bin2CellExplorer.setCheckbox("warm_cache", !!data.warm_cache);
   }
   if (typeof data.warm_cache_tiles !== "undefined") {
-    interfaceUtils.setValueForElement("Bin2CellExplorer_warm_cache_tiles", "value", data.warm_cache_tiles);
+    interfaceUtils.setValueForElement(Bin2CellExplorer._domId("warm_cache_tiles"), "value", data.warm_cache_tiles);
   }
   if (typeof data.tile_workers !== "undefined") {
-    interfaceUtils.setValueForElement("Bin2CellExplorer_tile_workers", "value", data.tile_workers);
+    interfaceUtils.setValueForElement(Bin2CellExplorer._domId("tile_workers"), "value", data.tile_workers);
   }
   if (typeof data.single_tile_mode !== "undefined") {
     Bin2CellExplorer.setCheckbox("single_tile_mode", !!data.single_tile_mode);
@@ -530,7 +544,7 @@ Bin2CellExplorer.onDatasetLoaded = function(data) {
 };
 
 Bin2CellExplorer.populateSelect = function(name, options, selected) {
-  const domId = "Bin2CellExplorer_" + name;
+  const domId = Bin2CellExplorer._domId(name);
   interfaceUtils.cleanSelect(domId);
   options.forEach(function(opt) {
     interfaceUtils.addSingleElementToSelect(domId, String(opt));
@@ -555,7 +569,7 @@ Bin2CellExplorer.populateSelect = function(name, options, selected) {
 };
 
 Bin2CellExplorer.attachTileSelectListener = function() {
-  const select = document.getElementById("Bin2CellExplorer_tile_id");
+  const select = Bin2CellExplorer._findElement("tile_id");
   if (!select || select.__bin2cell_tile_listener) return;
   select.addEventListener("change", function() {
     const value = parseInt(select.value, 10);
@@ -569,7 +583,7 @@ Bin2CellExplorer.attachTileSelectListener = function() {
 };
 
 Bin2CellExplorer.attachObsSelectListener = function() {
-  const select = document.getElementById("Bin2CellExplorer_obs_col");
+  const select = Bin2CellExplorer._findElement("obs_col");
   if (!select || select.__bin2cell_obs_listener) return;
   select.addEventListener("change", function() {
     Bin2CellExplorer.onObsColumnChange(select.value || "");
@@ -578,7 +592,7 @@ Bin2CellExplorer.attachObsSelectListener = function() {
 };
 
 Bin2CellExplorer.attachCategorySelectListener = function() {
-  const select = document.getElementById("Bin2CellExplorer_category");
+  const select = Bin2CellExplorer._findElement("category");
   if (!select || select.__bin2cell_category_listener) return;
   select.addEventListener("change", function() {
     const col = Bin2CellExplorer.get("obs_col");
@@ -597,7 +611,7 @@ Bin2CellExplorer.onObsColumnChange = function(column, options) {
   if (!opts.keepCategory) {
     const cached = value ? Bin2CellExplorer.state.obsCategorySelections[value] : "";
     Bin2CellExplorer.state.pendingCategoryValue = cached || "";
-    interfaceUtils.setValueForElement("Bin2CellExplorer_category", "value", "");
+    interfaceUtils.setValueForElement(Bin2CellExplorer._domId("category"), "value", "");
   }
   Bin2CellExplorer.ensureObsMetadata(value);
 };
@@ -951,11 +965,12 @@ Bin2CellExplorer.handleError = function(jqXHR, textStatus, errorThrown) {
 };
 
 Bin2CellExplorer.isChecked = function(name) {
-  return interfaceUtils.isChecked("Bin2CellExplorer_" + name);
+  const el = Bin2CellExplorer._findElement(name);
+  return !!(el && el.checked);
 };
 
 Bin2CellExplorer.setCheckbox = function(name, value) {
-  const el = document.getElementById("Bin2CellExplorer_" + name);
+  const el = Bin2CellExplorer._findElement(name);
   if (el) {
     el.checked = !!value;
   }
@@ -969,7 +984,7 @@ Bin2CellExplorer.updateDatasetMode = function() {
 };
 
 Bin2CellExplorer.toggleDatasetControl = function(name, enabled) {
-  const el = document.getElementById("Bin2CellExplorer_" + name);
+  const el = Bin2CellExplorer._findElement(name);
   if (!el) return;
   el.disabled = !enabled;
   const wrapper = el.closest(".form-group, .row, .input-group");
@@ -1317,6 +1332,5 @@ Bin2CellExplorer.hexToRgba = function(hex, alpha) {
     return `rgba(160,160,160,${Math.max(0, Math.min(1, Number(alpha)||0.5))})`;
   }
 };
-
-// Ensure filename-based global exists for TissUUmaps plugin loader, since I changed the name
+// Ensure filename-based global exists for TissUUmaps plugin loader
 var CellExplorer = Bin2CellExplorer;
