@@ -19,10 +19,8 @@ theme:
     - content.code.copy
 nav:
   - Overview: index.md
-  - Usage Guide: usage.md
-  - Developer Guide: developer-guide.md
+  - Guide: guide.md
   - Architecture: architecture.md
-  - Design Rationale: design-rationale.md
 markdown_extensions:
   - admonition
   - toc:
