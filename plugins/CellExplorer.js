@@ -1317,3 +1317,6 @@ Bin2CellExplorer.hexToRgba = function(hex, alpha) {
     return `rgba(160,160,160,${Math.max(0, Math.min(1, Number(alpha)||0.5))})`;
   }
 };
+
+// Ensure filename-based global exists for TissUUmaps plugin loader, since I changed the name
+var CellExplorer = Bin2CellExplorer;
