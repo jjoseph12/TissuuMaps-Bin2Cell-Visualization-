@@ -80,7 +80,12 @@ cp /path/to/CellExplorer.yml ~/.tissuumaps/plugins/CellExplorer.yml
 ```
 Keep the destination as `~/.tissuumaps/plugins/CellExplorer*` on the server as well.
 
-5) On the NYGC cluster, you can use the launch_tissuumaps.sh to launch and get started easier! It is a headless server (three modes)
+5) On the NYGC cluster, you can use the launch_tissuumaps.sh to launch and get started easier! It is a headless server (three modes). Path to slides means the path you want the file to open up on the UI directories otherwise it opens eveyrthing which is slow and might crash, for example: ~/.tissuumaps/launch_tissuumaps.sh --quiet /gpfs/commons/groups/innovation/jjoseph/
+
+(you can always type in paths in the UI later)
+
+Before make sure you give the script permission via: chmod +x launch_tissuumaps.sh
+
 ```bash
 # Quiet (modules ON)
 ~/.tissuumaps/launch_tissuumaps.sh --quiet /path/to/slides
