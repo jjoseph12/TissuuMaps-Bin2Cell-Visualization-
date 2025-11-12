@@ -2,7 +2,7 @@
 
 [![Documentation](https://img.shields.io/badge/docs-mkdocs-blue)](https://jjoseph12.github.io/TissuuMaps-Bin2Cell-Visualization-/) [![GitHub Pages](https://github.com/jjoseph12/TissuuMaps-Bin2Cell-Visualization-/workflows/Deploy%20MkDocs%20Site/badge.svg)](https://github.com/jjoseph12/TissuuMaps-Bin2Cell-Visualization-/actions/workflows/deploy-docs.yml)
 
- **[View Documentation](https://jjoseph12.github.io/TissuuMaps-Bin2Cell-Visualization-/)** | 🔬 **[Interactive Demo](plugins/Bin2Cell_demo.ipynb)**
+ **[View Documentation](https://jjoseph12.github.io/Cell-Explorer-Documenation/)** | 🔬 **[Interactive Demo](plugins/Bin2Cell_demo.ipynb)**
 
 > ℹ️ GitHub Pages is wired to the **Deploy MkDocs Site** workflow. Ensure *Settings → Pages → Source* is set to **GitHub Actions** so the published site reflects `mkdocs.yml` rather than the repository README.
 
