@@ -1099,6 +1099,14 @@ Bin2CellExplorer.drawOutlines = function(layer, data) {
   (data.nuclei_outline || []).forEach(function(line) {
     const pathData = Bin2CellExplorer.lineToPath(line);
     if (!pathData) return;
+    // Use UI-configured stroke color and alpha; fall back to defaults if missing
+    const nucleiColor = Bin2CellExplorer.get("nuclei_outline_color") || "#000000";
+    const nucleiAlpha = (function () {
+      const raw = Bin2CellExplorer.get("nuclei_outline_alpha");
+      const num = Number(raw);
+      return isNaN(num) ? 0.6 : Math.max(0, Math.min(1, num));
+    })();
+    const nucleiStroke = Bin2CellExplorer.hexToRgba(nucleiColor, nucleiAlpha);
     outlinesGroup.append("path")
       .attr("d", pathData)
       .attr("stroke", nucleiStroke)
@@ -1332,5 +1340,5 @@ Bin2CellExplorer.hexToRgba = function(hex, alpha) {
     return `rgba(160,160,160,${Math.max(0, Math.min(1, Number(alpha)||0.5))})`;
   }
 };
-// Ensure filename-based global exists for TissUUmaps plugin loader
+// Ensure filename-based global exists for TissUUmaps plugin loader, cause we changed name
 var CellExplorer = Bin2CellExplorer;
