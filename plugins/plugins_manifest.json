@@ -1,7 +1,7 @@
 {
   "modules": {
     "CellExplorer": {
-      "path": "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.js",
+      "path": "/nfs/home/jjoseph/.tissuumaps/plugins/CellExplorer.js",
       "name": "CellExplorer"
     }
   }
