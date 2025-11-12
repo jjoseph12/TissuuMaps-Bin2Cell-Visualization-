@@ -61,8 +61,9 @@ cd ~/.tissuumaps
 uv sync
 ```
 
-3) Copy the plugin files into the server’s TissUUmaps path
+3) Install files and Copy the plugin files into the server’s TissUUmaps path
 ```bash
+https://github.com/jjoseph12/Cell-Explorer-Visualization.git
 mkdir -p ~/.tissuumaps/plugins
 cp /path/to/CellExplorer.js  ~/.tissuumaps/plugins/CellExplorer.js
 cp /path/to/CellExplorer.py  ~/.tissuumaps/plugins/CellExplorer.py
