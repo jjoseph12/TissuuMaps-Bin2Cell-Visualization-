@@ -29,9 +29,13 @@ cd ~/.tissuumaps
 uv sync
 ```
 
-4) Install files and Copy the plugin files into TissUUmaps
+4) Install files
 ```bash
 git clone https://github.com/jjoseph12/Cell-Explorer-Visualization.git
+```
+
+5) Copy the plugin files into TissUUmaps
+```bash
 mkdir -p ~/.tissuumaps/plugins
 cp /path/to/CellExplorer.js  ~/.tissuumaps/plugins/CellExplorer.js
 cp /path/to/CellExplorer.py  ~/.tissuumaps/plugins/CellExplorer.py
@@ -40,7 +44,7 @@ cp /path/to/CellExplorer.yml ~/.tissuumaps/plugins/CellExplorer.yml
 ```
 Keep the destination path exactly as above so TissUUmaps can find the plugin.
 
-5) Launch TissUUmaps
+6) Launch TissUUmaps
 ```bash
 uv run tissuumaps (or you can just say tissuumaps)
 
@@ -61,8 +65,12 @@ export PATH="$HOME/.local/bin:$PATH"
 cd ~/.tissuumaps
 uv sync
 ```
+3) Install files
+```bash
+git clone https://github.com/jjoseph12/Cell-Explorer-Visualization.git
+```
 
-3) Install files and Copy the plugin files into the server’s TissUUmaps path
+4) Install files and Copy the plugin files into the server’s TissUUmaps path
 ```bash
 https://github.com/jjoseph12/Cell-Explorer-Visualization.git
 mkdir -p ~/.tissuumaps/plugins
@@ -72,7 +80,7 @@ cp /path/to/CellExplorer.yml ~/.tissuumaps/plugins/CellExplorer.yml
 ```
 Keep the destination as `~/.tissuumaps/plugins/CellExplorer*` on the server as well.
 
-4) On the NYGC cluster, you can use the launch_tissuumaps.sh to launch and get started easier! It is a headless server (three modes)
+5) On the NYGC cluster, you can use the launch_tissuumaps.sh to launch and get started easier! It is a headless server (three modes)
 ```bash
 # Quiet (modules ON)
 ~/.tissuumaps/launch_tissuumaps.sh --quiet /path/to/slides
@@ -87,7 +95,7 @@ ssh -L 5678:localhost:5678 <cluster-host>
 # then open http://localhost:5678/
 ```
 
-5) Easier alternatives (optional helpers)
+6) Easier alternatives (optional helpers)
 - `install_bin2cell_plugin.sh` — clones the GitHub repo and installs the plugin into `~/.tissuumaps/plugins/`.
 - `setup_uv_bin2cell.sh` — ensures uv is installed, runs `uv sync`, copies the plugin, and can launch.
 
