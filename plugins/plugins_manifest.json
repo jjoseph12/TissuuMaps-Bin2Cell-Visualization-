@@ -1,6 +1,6 @@
 {
   "modules": {
-    "Bin2CellExplorer": {
+    "CellExplorer": {
       "path": "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.js",
       "name": "CellExplorer"
     }
