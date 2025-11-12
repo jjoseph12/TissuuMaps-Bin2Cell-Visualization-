@@ -69,7 +69,6 @@ mkdir -p ~/.tissuumaps/plugins
 cp /path/to/CellExplorer.js  ~/.tissuumaps/plugins/CellExplorer.js
 cp /path/to/CellExplorer.py  ~/.tissuumaps/plugins/CellExplorer.py
 cp /path/to/CellExplorer.yml ~/.tissuumaps/plugins/CellExplorer.yml
-rsync -a /path/to/CellExplorer/ ~/.tissuumaps/plugins/CellExplorer/ 2>/dev/null || true
 ```
 Keep the destination as `~/.tissuumaps/plugins/CellExplorer*` on the server as well.
 
