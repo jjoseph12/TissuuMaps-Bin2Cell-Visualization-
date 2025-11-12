@@ -1,7 +1,7 @@
 # Cell Explorer TissUUmaps Plugins
 
 
-**[View Documentation](https://jjoseph12.github.io/Cell-Explorer-Documenation/)** | 🔬 **[Interactive Demo](plugins/Bin2Cell_demo.ipynb)**
+**[View Live Documentation](https://jjoseph12.github.io/Cell-Explorer-Documenation/)** | **[Interactive Ipynb Demo](plugins/Bin2Cell_demo.ipynb)**
 
 
 Cell Explorer provides interactive gene and observation overlays for TissUUmaps. You can run it locally or on a cluster/server.
