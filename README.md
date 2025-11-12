@@ -97,7 +97,7 @@ ssh -L 5678:localhost:5678 <cluster-host>
 
 6) Easier alternatives (optional helpers)
 - `install_bin2cell_plugin.sh` — clones the GitHub repo and installs the plugin into `~/.tissuumaps/plugins/`.
-- `setup_uv_bin2cell.sh` — ensures uv is installed, runs `uv sync`, copies the plugin, and can launch.
+- `setup_uv_bin2cell.sh` — makes sure uv is installed, runs `uv sync`, copies the plugin, and can launch.
 
 ```bash
 ~/.tissuumaps/install_bin2cell_plugin.sh --persist-path --force
