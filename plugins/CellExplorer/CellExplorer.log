@@ -1,0 +1,690 @@
+2025-11-27 01:07:02,095 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 01:07:02,095 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 01:07:06,277 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 01:07:06,996 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 01:07:09,744 [INFO] Dataset loaded successfully: 224 tiles
+2025-11-27 01:07:09,828 [INFO] Rehydrating dataset from cached config.
+2025-11-27 01:07:09,829 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 01:07:14,773 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 01:07:15,285 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 01:07:24,735 [INFO] Rehydrating dataset from cached config.
+2025-11-27 01:07:24,736 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 01:07:28,007 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 01:07:28,360 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 01:07:37,731 [INFO] Rehydrating dataset from cached config.
+2025-11-27 01:07:37,731 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 01:07:41,013 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 01:07:41,539 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 01:11:07,717 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 01:11:07,718 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 01:11:10,556 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 01:11:10,910 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 01:11:13,209 [INFO] Dataset loaded successfully: 224 tiles
+2025-11-27 01:11:13,275 [INFO] Rehydrating dataset from cached config.
+2025-11-27 01:11:13,275 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 01:11:16,779 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 01:11:17,359 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 01:11:26,289 [INFO] Rehydrating dataset from cached config.
+2025-11-27 01:11:26,290 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 01:11:29,702 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 01:11:30,049 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 01:11:33,550 [INFO] Rehydrating dataset from cached config.
+2025-11-27 01:11:33,550 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 01:11:37,162 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 01:11:37,641 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 01:12:30,150 [INFO] Rehydrating dataset from cached config.
+2025-11-27 01:12:30,151 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 01:12:32,304 [INFO] Rehydrating dataset from cached config.
+2025-11-27 01:12:32,304 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 01:12:34,806 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 01:12:36,111 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 01:12:37,745 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 01:12:38,223 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:45:58,559 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 02:45:58,559 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 02:45:58,559 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:45:58,559 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:46:01,968 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:46:02,424 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:46:05,190 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:46:05,203 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:46:08,848 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:46:09,318 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:46:43,787 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:46:43,788 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:46:47,815 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:46:48,312 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:46:49,945 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:46:49,946 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:46:54,563 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:46:54,992 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:46:58,176 [INFO] GeometryCache MISS for tile 184, computing geometry...
+2025-11-27 02:47:28,928 [INFO] Geometry cached for tile 184
+2025-11-27 02:47:57,211 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:47:57,212 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:48:01,324 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:48:01,726 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:48:04,176 [INFO] GeometryCache MISS for tile 184, computing geometry...
+2025-11-27 02:48:35,008 [INFO] Geometry cached for tile 184
+2025-11-27 02:48:57,491 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:48:57,492 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:49:02,271 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:49:02,650 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:49:05,226 [INFO] GeometryCache MISS for tile 184, computing geometry...
+2025-11-27 02:49:35,956 [INFO] Geometry cached for tile 184
+2025-11-27 02:49:57,256 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:49:57,256 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:50:01,538 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:50:01,919 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:50:04,582 [INFO] GeometryCache MISS for tile 184, computing geometry...
+2025-11-27 02:50:35,360 [INFO] Geometry cached for tile 184
+2025-11-27 02:50:36,768 [ERROR] Quantiles must be in the range [0, 1]
+Traceback (most recent call last):
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1917, in get_overlay
+    colored_overlay = self._prepare_gene_overlay(geometry_entry, params, include_geometry=include_geometry)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 2033, in _prepare_gene_overlay
+    threshold = float(np.quantile(tile_values, expr_quantile))
+  File "/Users/jjoseph/.tissuumaps/.venv/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py", line 4650, in quantile
+    raise ValueError("Quantiles must be in the range [0, 1]")
+ValueError: Quantiles must be in the range [0, 1]
+2025-11-27 02:50:48,393 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:50:48,393 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:50:52,968 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:50:53,426 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:50:56,213 [INFO] GeometryCache MISS for tile 184, computing geometry...
+2025-11-27 02:51:28,687 [INFO] Geometry cached for tile 184
+2025-11-27 02:51:45,853 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:51:45,854 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:51:49,997 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:51:50,434 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:56:32,139 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 02:56:32,139 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 02:56:32,139 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:56:32,139 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:56:35,092 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:56:35,713 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:56:37,995 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:56:37,996 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:56:41,959 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:56:42,493 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:56:48,776 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:56:48,776 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:56:51,639 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:56:51,640 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:56:52,367 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:56:53,820 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:56:57,204 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:56:57,884 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:57:02,386 [INFO] GeometryCache MISS for tile 183, computing geometry...
+2025-11-27 02:57:10,438 [INFO] Geometry cached for tile 183
+2025-11-27 02:57:22,309 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:57:22,309 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:57:23,965 [INFO] Rehydrating dataset from cached config.
+2025-11-27 02:57:23,965 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:57:27,403 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:57:28,616 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:57:29,288 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:57:30,361 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:57:36,378 [INFO] GeometryCache MISS for tile 183, computing geometry...
+2025-11-27 02:57:44,749 [INFO] Geometry cached for tile 183
+2025-11-27 02:59:48,340 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 02:59:48,341 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 02:59:48,341 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 02:59:48,341 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:59:51,606 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:59:52,070 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 02:59:54,670 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 02:59:54,775 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 02:59:54,775 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 02:59:58,896 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 02:59:59,352 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:00:02,214 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:00:04,910 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 03:00:04,910 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 03:00:06,468 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 03:00:06,469 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 03:00:10,957 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 03:00:12,537 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:00:12,574 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 03:00:13,504 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:00:20,271 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:00:20,274 [INFO] GeometryCache MISS for tile 167, computing geometry...
+2025-11-27 03:00:20,275 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:00:32,523 [INFO] Geometry cached for tile 167
+2025-11-27 03:00:39,653 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 03:00:39,653 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 03:00:41,232 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 03:00:41,233 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 03:00:45,470 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 03:00:46,932 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:00:47,342 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 03:00:48,204 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:00:53,102 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:00:55,007 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:00:55,009 [INFO] GeometryCache MISS for tile 167, computing geometry...
+2025-11-27 03:01:07,257 [INFO] Geometry cached for tile 167
+2025-11-27 03:01:35,294 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 03:01:35,294 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 03:01:39,255 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 03:01:39,695 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:01:42,558 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:01:42,562 [INFO] GeometryCache MISS for tile 167, computing geometry...
+2025-11-27 03:01:54,467 [INFO] Geometry cached for tile 167
+2025-11-27 03:03:27,893 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 03:03:27,893 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 03:03:27,893 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 03:03:27,893 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 03:03:31,543 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 03:03:32,047 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:03:34,455 [INFO] 🟢 context setter: Storing context (id: 13779709184, _GLOBAL_STATE id: 13607457856)
+2025-11-27 03:03:34,455 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:03:34,533 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 03:03:34,533 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 03:03:38,341 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 03:03:38,798 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:03:41,281 [INFO] 🟢 context setter: Storing context (id: 13793831616, _GLOBAL_STATE id: 13806876864)
+2025-11-27 03:03:41,284 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:03:44,517 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 03:03:44,517 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 03:03:47,100 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 03:03:47,102 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 03:03:49,303 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 03:03:50,910 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:03:53,872 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 03:03:54,208 [INFO] 🟢 context setter: Storing context (id: 13863803920, _GLOBAL_STATE id: 13818386624)
+2025-11-27 03:03:54,209 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:03:54,602 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:04:00,050 [INFO] 🟢 context setter: Storing context (id: 13762638176, _GLOBAL_STATE id: 13762564800)
+2025-11-27 03:04:00,051 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:04:00,053 [INFO] GeometryCache MISS for tile 103, computing geometry...
+2025-11-27 03:04:30,677 [INFO] Geometry cached for tile 103
+2025-11-27 03:04:42,986 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 03:04:42,986 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 03:04:45,602 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 03:04:45,603 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 03:04:47,594 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 03:04:49,289 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:04:50,963 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 03:04:51,475 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:04:54,872 [INFO] 🟢 context setter: Storing context (id: 15607812544, _GLOBAL_STATE id: 16223036160)
+2025-11-27 03:04:54,875 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:04:57,852 [INFO] 🟢 context setter: Storing context (id: 30984131296, _GLOBAL_STATE id: 30968853248)
+2025-11-27 03:04:57,855 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:04:57,857 [INFO] GeometryCache MISS for tile 103, computing geometry...
+2025-11-27 03:05:28,180 [INFO] Geometry cached for tile 103
+2025-11-27 03:07:59,161 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 03:07:59,162 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 03:07:59,162 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 03:07:59,162 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 03:07:59,162 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 03:08:02,498 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 03:08:02,928 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:08:05,525 [INFO] 🟢 context setter: Storing context (ctx id: 13815151872, state id: 13808829696)
+2025-11-27 03:08:05,526 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:08:05,571 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:08:05,571 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:08:32,788 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:08:34,964 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:08:34,965 [INFO] GeometryCache MISS for tile 136, computing geometry...
+2025-11-27 03:09:06,805 [INFO] Geometry cached for tile 136
+2025-11-27 03:10:13,574 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:10:15,209 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:10:23,105 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:10:25,326 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:10:49,782 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:11:03,011 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:11:06,843 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:11:15,108 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:11:16,459 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:11:27,944 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:11:43,458 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:11:45,825 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:11:59,226 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:12:08,560 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:12:12,975 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:12:25,260 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:12:34,376 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:12:43,345 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:12:53,893 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:13:09,393 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:13:23,501 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:13:37,743 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:13:48,977 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:13:58,625 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:14:07,609 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:14:21,294 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:14:21,294 [ERROR] Provide 'gene' or 'genes' for gene overlay.
+Traceback (most recent call last):
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1936, in get_overlay
+    colored_overlay = self._prepare_gene_overlay(geometry_entry, params, include_geometry=include_geometry)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1989, in _prepare_gene_overlay
+    raise ValueError("Provide 'gene' or 'genes' for gene overlay.")
+ValueError: Provide 'gene' or 'genes' for gene overlay.
+2025-11-27 03:14:32,371 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:14:32,372 [ERROR] "Gene 'COL' not found in AnnData."
+Traceback (most recent call last):
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1936, in get_overlay
+    colored_overlay = self._prepare_gene_overlay(geometry_entry, params, include_geometry=include_geometry)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 2046, in _prepare_gene_overlay
+    values = ctx.gene_vector(gene)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 295, in gene_vector
+    raise KeyError(f"Gene '{gene}' not found in AnnData.")
+KeyError: "Gene 'COL' not found in AnnData."
+2025-11-27 03:14:39,041 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:14:39,042 [ERROR] "Gene 'COLA' not found in AnnData."
+Traceback (most recent call last):
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1936, in get_overlay
+    colored_overlay = self._prepare_gene_overlay(geometry_entry, params, include_geometry=include_geometry)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 2046, in _prepare_gene_overlay
+    values = ctx.gene_vector(gene)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 295, in gene_vector
+    raise KeyError(f"Gene '{gene}' not found in AnnData.")
+KeyError: "Gene 'COLA' not found in AnnData."
+2025-11-27 03:14:44,928 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:14:44,929 [INFO] GeometryCache MISS for tile 136, computing geometry...
+2025-11-27 03:15:19,727 [INFO] Geometry cached for tile 136
+2025-11-27 03:15:19,728 [ERROR] "Gene 'COLA' not found in AnnData."
+Traceback (most recent call last):
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1936, in get_overlay
+    colored_overlay = self._prepare_gene_overlay(geometry_entry, params, include_geometry=include_geometry)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 2046, in _prepare_gene_overlay
+    values = ctx.gene_vector(gene)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 295, in gene_vector
+    raise KeyError(f"Gene '{gene}' not found in AnnData.")
+KeyError: "Gene 'COLA' not found in AnnData."
+2025-11-27 03:27:43,668 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 03:27:49,117 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 03:27:57,264 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 03:28:08,748 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 03:28:08,748 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 03:28:08,749 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 03:28:08,749 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 03:28:08,749 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 03:28:12,050 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 03:28:12,528 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 03:28:15,035 [INFO] 🟢 context setter: Storing context (ctx id: 13219852640, state id: 14041579392)
+2025-11-27 03:28:15,036 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 03:28:15,159 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:28:15,159 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:28:20,519 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:28:20,520 [INFO] GeometryCache MISS for tile 119, computing geometry...
+2025-11-27 03:28:41,570 [INFO] Geometry cached for tile 119
+2025-11-27 03:32:12,126 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:32:21,878 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:32:23,030 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:33:49,289 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 03:33:51,298 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:36:08,461 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 12:36:13,300 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 12:36:19,162 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 12:36:35,965 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 12:36:35,966 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 12:36:35,967 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 12:36:35,967 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 12:36:35,967 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 12:36:39,817 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 12:36:40,317 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 12:36:42,678 [INFO] 🟢 context setter: Storing context (ctx id: 13064516704, state id: 14013172160)
+2025-11-27 12:36:42,680 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 12:36:42,868 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:36:42,868 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:37:16,368 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:37:16,370 [INFO] GeometryCache MISS for tile 183, computing geometry...
+2025-11-27 12:37:24,697 [INFO] Geometry cached for tile 183
+2025-11-27 12:37:49,357 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:37:51,014 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:40:19,853 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:40:21,353 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:40:53,533 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:41:34,677 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:41:38,229 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:41:53,151 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:41:55,495 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:42:13,998 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:42:26,653 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:42:35,762 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:55:15,573 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 12:55:20,947 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 12:55:26,499 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 12:55:35,529 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 12:55:35,530 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 12:55:35,530 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 12:55:35,530 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 12:55:35,531 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 12:55:39,678 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 12:55:40,193 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 12:55:42,535 [INFO] 🟢 context setter: Storing context (ctx id: 13338591920, state id: 14002685440)
+2025-11-27 12:55:42,537 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 12:55:42,715 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:55:42,715 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:58:35,607 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 12:58:35,609 [INFO] GeometryCache MISS for tile 151, computing geometry...
+2025-11-27 12:58:54,584 [INFO] Geometry cached for tile 151
+2025-11-27 13:01:26,102 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:01:26,103 [INFO] GeometryCache MISS for tile 151, computing geometry...
+2025-11-27 13:01:45,066 [INFO] Geometry cached for tile 151
+2025-11-27 13:02:21,711 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:02:33,495 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:03:41,445 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 13:03:46,121 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:03:51,086 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:04:03,921 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:04:03,921 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 13:04:03,921 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 13:04:03,921 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 13:04:03,921 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 13:04:07,230 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 13:04:07,782 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 13:04:10,622 [INFO] 🟢 context setter: Storing context (ctx id: 13261939376, state id: 13991620544)
+2025-11-27 13:04:10,623 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 13:04:10,708 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:04:10,708 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:09:08,812 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 13:09:18,151 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:09:25,984 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:09:25,985 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 13:09:25,985 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 13:09:29,639 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 13:09:30,244 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 13:09:32,970 [INFO] 🟢 context setter: Storing context (ctx id: 13183802960, state id: 13758537152)
+2025-11-27 13:09:32,973 [INFO] Dataset loaded successfully: 224 tiles
+2025-11-27 13:09:32,978 [INFO] GeometryCache MISS for tile 0, computing geometry...
+2025-11-27 13:09:32,978 [INFO] GeometryCache MISS for tile 1, computing geometry...
+2025-11-27 13:09:32,979 [INFO] GeometryCache MISS for tile 2, computing geometry...
+2025-11-27 13:09:32,979 [INFO] GeometryCache MISS for tile 3, computing geometry...
+2025-11-27 13:09:32,980 [INFO] GeometryCache MISS for tile 4, computing geometry...
+2025-11-27 13:09:32,981 [INFO] GeometryCache MISS for tile 5, computing geometry...
+2025-11-27 13:09:32,981 [INFO] GeometryCache MISS for tile 6, computing geometry...
+2025-11-27 13:09:32,986 [INFO] GeometryCache MISS for tile 7, computing geometry...
+2025-11-27 13:09:33,318 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:09:33,321 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:09:33,668 [INFO] Geometry cached for tile 5
+2025-11-27 13:09:33,668 [INFO] GeometryCache MISS for tile 8, computing geometry...
+2025-11-27 13:09:33,683 [INFO] Geometry cached for tile 1
+2025-11-27 13:09:33,683 [INFO] GeometryCache MISS for tile 9, computing geometry...
+2025-11-27 13:09:33,710 [INFO] Geometry cached for tile 4
+2025-11-27 13:09:33,726 [INFO] Geometry cached for tile 0
+2025-11-27 13:09:33,726 [INFO] Geometry cached for tile 3
+2025-11-27 13:09:33,726 [INFO] Geometry cached for tile 2
+2025-11-27 13:09:33,727 [INFO] GeometryCache MISS for tile 10, computing geometry...
+2025-11-27 13:09:33,727 [INFO] GeometryCache MISS for tile 11, computing geometry...
+2025-11-27 13:09:33,728 [INFO] GeometryCache MISS for tile 12, computing geometry...
+2025-11-27 13:09:33,728 [INFO] GeometryCache MISS for tile 13, computing geometry...
+2025-11-27 13:09:33,745 [INFO] Geometry cached for tile 6
+2025-11-27 13:09:33,746 [INFO] Geometry cached for tile 7
+2025-11-27 13:09:33,749 [INFO] GeometryCache MISS for tile 14, computing geometry...
+2025-11-27 13:09:33,751 [INFO] GeometryCache MISS for tile 15, computing geometry...
+2025-11-27 13:09:33,831 [INFO] Geometry cached for tile 15
+2025-11-27 13:09:33,832 [INFO] GeometryCache MISS for tile 16, computing geometry...
+2025-11-27 13:09:34,041 [INFO] Geometry cached for tile 14
+2025-11-27 13:09:34,043 [INFO] GeometryCache MISS for tile 17, computing geometry...
+2025-11-27 13:09:34,198 [INFO] Geometry cached for tile 16
+2025-11-27 13:09:34,227 [INFO] GeometryCache MISS for tile 18, computing geometry...
+2025-11-27 13:09:34,509 [INFO] Geometry cached for tile 13
+2025-11-27 13:09:34,511 [INFO] GeometryCache MISS for tile 19, computing geometry...
+2025-11-27 13:09:34,728 [INFO] Geometry cached for tile 17
+2025-11-27 13:09:34,729 [INFO] GeometryCache MISS for tile 20, computing geometry...
+2025-11-27 13:09:34,857 [INFO] Geometry cached for tile 18
+2025-11-27 13:09:34,864 [INFO] GeometryCache MISS for tile 21, computing geometry...
+2025-11-27 13:09:35,566 [INFO] Geometry cached for tile 21
+2025-11-27 13:09:35,568 [INFO] Geometry cached for tile 20
+2025-11-27 13:09:35,568 [INFO] GeometryCache MISS for tile 22, computing geometry...
+2025-11-27 13:09:35,585 [INFO] GeometryCache MISS for tile 23, computing geometry...
+2025-11-27 13:09:37,058 [INFO] Geometry cached for tile 22
+2025-11-27 13:09:37,060 [INFO] GeometryCache MISS for tile 24, computing geometry...
+2025-11-27 13:09:47,512 [INFO] Geometry cached for tile 19
+2025-11-27 13:09:47,537 [INFO] GeometryCache MISS for tile 25, computing geometry...
+2025-11-27 13:10:05,056 [INFO] Geometry cached for tile 23
+2025-11-27 13:10:05,093 [INFO] GeometryCache MISS for tile 26, computing geometry...
+2025-11-27 13:10:10,531 [INFO] Geometry cached for tile 11
+2025-11-27 13:10:10,573 [INFO] GeometryCache MISS for tile 27, computing geometry...
+2025-11-27 13:10:25,595 [INFO] Geometry cached for tile 12
+2025-11-27 13:10:25,596 [INFO] GeometryCache MISS for tile 28, computing geometry...
+2025-11-27 13:10:28,879 [INFO] Geometry cached for tile 10
+2025-11-27 13:10:28,880 [INFO] GeometryCache MISS for tile 29, computing geometry...
+2025-11-27 13:11:00,918 [INFO] Geometry cached for tile 8
+2025-11-27 13:11:00,920 [INFO] GeometryCache MISS for tile 30, computing geometry...
+2025-11-27 13:12:08,150 [INFO] Geometry cached for tile 30
+2025-11-27 13:12:08,235 [INFO] GeometryCache MISS for tile 31, computing geometry...
+2025-11-27 13:12:09,757 [INFO] Geometry cached for tile 31
+2025-11-27 13:12:15,404 [INFO] Geometry cached for tile 9
+2025-11-27 13:12:38,119 [INFO] Geometry cached for tile 24
+2025-11-27 13:12:57,443 [INFO] Geometry cached for tile 28
+2025-11-27 13:13:13,159 [INFO] Geometry cached for tile 26
+2025-11-27 13:13:13,995 [INFO] Geometry cached for tile 25
+2025-11-27 13:13:41,063 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 13:13:49,913 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:13:58,566 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:13:58,567 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 13:13:58,567 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 13:14:01,638 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 13:14:02,122 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 13:14:04,587 [INFO] 🟢 context setter: Storing context (ctx id: 13249428640, state id: 13773886208)
+2025-11-27 13:14:04,589 [INFO] Dataset loaded successfully: 224 tiles
+2025-11-27 13:14:04,642 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:14:04,642 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:14:25,533 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:14:25,534 [INFO] GeometryCache MISS for tile 101, computing geometry...
+2025-11-27 13:14:47,627 [INFO] Geometry cached for tile 101
+2025-11-27 13:15:24,984 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:15:24,986 [ERROR] Quantiles must be in the range [0, 1]
+Traceback (most recent call last):
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1940, in get_overlay
+    colored_overlay = self._prepare_gene_overlay(geometry_entry, params, include_geometry=include_geometry)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 2060, in _prepare_gene_overlay
+    threshold = float(np.quantile(tile_values, expr_quantile))
+  File "/Users/jjoseph/.tissuumaps/.venv/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py", line 4650, in quantile
+    raise ValueError("Quantiles must be in the range [0, 1]")
+ValueError: Quantiles must be in the range [0, 1]
+2025-11-27 13:15:33,275 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:15:33,276 [ERROR] Quantiles must be in the range [0, 1]
+Traceback (most recent call last):
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1940, in get_overlay
+    colored_overlay = self._prepare_gene_overlay(geometry_entry, params, include_geometry=include_geometry)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 2060, in _prepare_gene_overlay
+    threshold = float(np.quantile(tile_values, expr_quantile))
+  File "/Users/jjoseph/.tissuumaps/.venv/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py", line 4650, in quantile
+    raise ValueError("Quantiles must be in the range [0, 1]")
+ValueError: Quantiles must be in the range [0, 1]
+2025-11-27 13:15:41,696 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:15:41,697 [ERROR] Quantiles must be in the range [0, 1]
+Traceback (most recent call last):
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1940, in get_overlay
+    colored_overlay = self._prepare_gene_overlay(geometry_entry, params, include_geometry=include_geometry)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 2060, in _prepare_gene_overlay
+    threshold = float(np.quantile(tile_values, expr_quantile))
+  File "/Users/jjoseph/.tissuumaps/.venv/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py", line 4650, in quantile
+    raise ValueError("Quantiles must be in the range [0, 1]")
+ValueError: Quantiles must be in the range [0, 1]
+2025-11-27 13:16:14,264 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:16:14,265 [ERROR] Failed to build overlay: _rgba_to_css() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1940, in get_overlay
+    colored_overlay = self._prepare_gene_overlay(geometry_entry, params, include_geometry=include_geometry)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 2104, in _prepare_gene_overlay
+    fill_color = _rgba_to_css(colors.to_rgba(highlight_color), overlay_alpha)
+TypeError: _rgba_to_css() takes 1 positional argument but 2 were given
+2025-11-27 13:16:29,096 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:17:57,049 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:17:59,729 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:19:15,602 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 13:19:21,044 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:19:26,760 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:19:35,042 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:19:35,042 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 13:19:35,043 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 13:19:35,043 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 13:19:35,043 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 13:19:38,833 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 13:19:39,382 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 13:19:42,121 [INFO] 🟢 context setter: Storing context (ctx id: 13321393680, state id: 13593144320)
+2025-11-27 13:19:42,122 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 13:19:42,194 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:19:42,194 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:23:02,795 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:23:02,797 [INFO] GeometryCache MISS for tile 86, computing geometry...
+2025-11-27 13:23:29,648 [INFO] Geometry cached for tile 86
+2025-11-27 13:23:31,286 [ERROR] Quantiles must be in the range [0, 1]
+Traceback (most recent call last):
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1940, in get_overlay
+    colored_overlay = self._prepare_gene_overlay(geometry_entry, params, include_geometry=include_geometry)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 2060, in _prepare_gene_overlay
+    threshold = float(np.quantile(tile_values, expr_quantile))
+  File "/Users/jjoseph/.tissuumaps/.venv/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py", line 4650, in quantile
+    raise ValueError("Quantiles must be in the range [0, 1]")
+ValueError: Quantiles must be in the range [0, 1]
+2025-11-27 13:23:48,101 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:23:48,102 [ERROR] Quantiles must be in the range [0, 1]
+Traceback (most recent call last):
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1940, in get_overlay
+    colored_overlay = self._prepare_gene_overlay(geometry_entry, params, include_geometry=include_geometry)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 2060, in _prepare_gene_overlay
+    threshold = float(np.quantile(tile_values, expr_quantile))
+  File "/Users/jjoseph/.tissuumaps/.venv/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py", line 4650, in quantile
+    raise ValueError("Quantiles must be in the range [0, 1]")
+ValueError: Quantiles must be in the range [0, 1]
+2025-11-27 13:24:00,400 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:24:00,401 [ERROR] Quantiles must be in the range [0, 1]
+Traceback (most recent call last):
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1940, in get_overlay
+    colored_overlay = self._prepare_gene_overlay(geometry_entry, params, include_geometry=include_geometry)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 2060, in _prepare_gene_overlay
+    threshold = float(np.quantile(tile_values, expr_quantile))
+  File "/Users/jjoseph/.tissuumaps/.venv/lib/python3.9/site-packages/numpy/lib/_function_base_impl.py", line 4650, in quantile
+    raise ValueError("Quantiles must be in the range [0, 1]")
+ValueError: Quantiles must be in the range [0, 1]
+2025-11-27 13:24:06,781 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:24:06,784 [ERROR] Failed to build overlay: _rgba_to_css() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 1940, in get_overlay
+    colored_overlay = self._prepare_gene_overlay(geometry_entry, params, include_geometry=include_geometry)
+  File "/Users/jjoseph/.tissuumaps/plugins/CellExplorer.py", line 2104, in _prepare_gene_overlay
+    fill_color = _rgba_to_css(colors.to_rgba(highlight_color), overlay_alpha)
+TypeError: _rgba_to_css() takes 1 positional argument but 2 were given
+2025-11-27 13:24:15,965 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:32:52,898 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 13:32:57,429 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:33:03,876 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:33:14,878 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:33:14,878 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 13:33:14,878 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 13:33:14,878 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 13:33:14,878 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 13:33:18,332 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 13:33:18,845 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 13:33:21,552 [INFO] 🟢 context setter: Storing context (ctx id: 13472843808, state id: 13661229312)
+2025-11-27 13:33:21,588 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 13:33:21,723 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:33:21,723 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:33:33,596 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:33:33,597 [INFO] GeometryCache MISS for tile 152, computing geometry...
+2025-11-27 13:34:11,759 [INFO] Geometry cached for tile 152
+2025-11-27 13:39:48,153 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 13:39:52,790 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:39:57,336 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:40:10,487 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:40:10,487 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 13:40:10,488 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 13:40:10,488 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 13:40:10,488 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 13:40:14,026 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 13:40:14,489 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 13:40:17,024 [INFO] 🟢 context setter: Storing context (ctx id: 6105856032, state id: 13975846784)
+2025-11-27 13:40:17,025 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 13:40:17,138 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:40:17,138 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:40:33,511 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:40:33,513 [INFO] GeometryCache MISS for tile 70, computing geometry...
+2025-11-27 13:40:39,425 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:40:41,636 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:40:53,416 [INFO] Geometry cached for tile 70
+2025-11-27 13:41:00,006 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:41:58,263 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:41:58,264 [INFO] GeometryCache MISS for tile 70, computing geometry...
+2025-11-27 13:42:17,493 [INFO] Geometry cached for tile 70
+2025-11-27 13:45:50,594 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 13:45:54,894 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:46:00,741 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:46:10,958 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:46:10,958 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 13:46:10,959 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 13:46:10,959 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 13:46:10,959 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 13:46:15,047 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 13:46:15,629 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 13:46:18,284 [INFO] 🟢 context setter: Storing context (ctx id: 6441694208, state id: 13901596544)
+2025-11-27 13:46:18,285 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 13:46:18,374 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:46:18,374 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:46:22,316 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:46:22,317 [INFO] GeometryCache MISS for tile 117, computing geometry...
+2025-11-27 13:46:46,717 [INFO] Geometry cached for tile 117
+2025-11-27 13:46:51,142 [INFO] Generated nuclei outlines for 307 labels
+2025-11-27 13:46:54,126 [INFO] Generated expanded outlines for 310 labels
+2025-11-27 13:53:10,556 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 13:53:15,833 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:53:20,382 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:53:30,281 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 13:53:30,281 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 13:53:30,281 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 13:53:30,281 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 13:53:30,281 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 13:53:33,517 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 13:53:34,069 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 13:53:36,605 [INFO] 🟢 context setter: Storing context (ctx id: 13393061728, state id: 14056384960)
+2025-11-27 13:53:36,606 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 13:53:36,715 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:53:36,715 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:53:46,002 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:53:46,004 [INFO] GeometryCache MISS for tile 118, computing geometry...
+2025-11-27 13:54:05,372 [INFO] Geometry cached for tile 118
+2025-11-27 13:54:10,438 [INFO] Generated nuclei outlines for 359 labels
+2025-11-27 13:54:13,851 [INFO] Generated expanded outlines for 360 labels
+2025-11-27 13:56:15,925 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:56:20,939 [INFO] Generated nuclei outlines for 359 labels
+2025-11-27 13:56:24,823 [INFO] Generated expanded outlines for 360 labels
+2025-11-27 13:56:43,653 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:56:45,169 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:57:06,742 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 13:57:08,210 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 14:01:27,646 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 14:01:32,029 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 14:01:36,777 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 14:01:46,227 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 14:01:46,227 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 14:01:46,227 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 14:01:46,227 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 14:01:46,227 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 14:01:49,740 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 14:01:50,348 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 14:01:52,912 [INFO] 🟢 context setter: Storing context (ctx id: 13177292640, state id: 13944407744)
+2025-11-27 14:01:52,914 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 14:01:53,014 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 14:01:53,014 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 14:01:58,314 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 14:01:58,317 [INFO] GeometryCache MISS for tile 102, computing geometry...
+2025-11-27 14:02:22,834 [INFO] Geometry cached for tile 102
+2025-11-27 14:02:28,910 [INFO] Generated nuclei outlines for 476 labels
+2025-11-27 14:02:33,896 [INFO] Generated expanded outlines for 478 labels
+2025-11-27 14:03:06,702 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 14:03:08,025 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 14:06:48,471 [INFO] 🆕 Initializing NEW app-level state (first time or after app restart)
+2025-11-27 14:06:53,075 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 14:06:58,288 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 14:07:07,072 [INFO] ♻️ Reusing EXISTING app-level state (context exists: False)
+2025-11-27 14:07:07,073 [INFO] load_dataset request paths: he_path='/Users/jjoseph/Desktop/he.tiff', labels_path='/Users/jjoseph/Desktop/he.npz', adata_path='/Users/jjoseph/Desktop/P2_CRC_annotated.h5ad'
+2025-11-27 14:07:07,074 [INFO] Dataset already loaded; reusing cached context.
+2025-11-27 14:07:07,074 [WARNING] ⚠️ Context is None, rehydrating dataset (this should only happen once per session!)
+2025-11-27 14:07:07,074 [INFO] Loading H&E image: /Users/jjoseph/Desktop/he.tiff
+2025-11-27 14:07:11,520 [INFO] Loading sparse labels: /Users/jjoseph/Desktop/he.npz
+2025-11-27 14:07:12,144 [INFO] Loading AnnData: /Users/jjoseph/Desktop/P2_CRC_annotated.h5ad
+2025-11-27 14:07:14,781 [INFO] 🟢 context setter: Storing context (ctx id: 6108989472, state id: 14029880512)
+2025-11-27 14:07:14,783 [INFO] ✅ Context rehydrated. Dataset ID: P2_CRC_annotated.h5ad
+2025-11-27 14:07:14,985 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 14:07:14,985 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 14:07:20,830 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 14:07:24,166 [INFO] ♻️ Reusing EXISTING app-level state (context exists: True)
+2025-11-27 14:07:24,168 [INFO] GeometryCache MISS for tile 137, computing geometry...
+2025-11-27 14:07:58,567 [INFO] Geometry cached for tile 137
+2025-11-27 14:08:05,609 [INFO] [OBS] Generated nuclei outlines for 699 labels
+2025-11-27 14:08:12,401 [INFO] [OBS] Generated expanded outlines for 701 labels

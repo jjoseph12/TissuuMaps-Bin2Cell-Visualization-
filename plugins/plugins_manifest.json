@@ -1,12 +1,8 @@
 {
   "modules": {
-    "Bin2CellExplorer": {
-      "path": "/Users/jjoseph/.tissuumaps/plugins/Bin2CellExplorer.js",
-      "name": "Bin2CellExplorer"
-    },
-    "CircleSeg_Overlay": {
-      "path": "/Users/jjoseph/.tissuumaps/plugins/CircleSeg_Overlay.js",
-      "name": "CircleSeg_Overlay"
+    "CellExplorer": {
+      "path": "/nfs/home/jjoseph/.tissuumaps/plugins/CellExplorer.js",
+      "name": "CellExplorer"
     }
   }
 }

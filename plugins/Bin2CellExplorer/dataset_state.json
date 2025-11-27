@@ -1,1 +1,0 @@
-{"he_path": "/Users/jjoseph/.tissuumaps/plugins/he.tiff", "labels_path": "/Users/jjoseph/.tissuumaps/plugins/he.npz", "adata_path": "/Users/jjoseph/.tissuumaps/plugins/P2_CRC_annotated.h5ad", "obsm_key": "spatial_cropped_150_buffer", "tile_h": 1500, "tile_w": 1500, "stride_h": null, "stride_w": null}
