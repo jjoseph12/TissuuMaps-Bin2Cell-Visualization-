@@ -1857,6 +1857,16 @@ class Plugin:
 
         outline_exp = _outline_paths(lab_exp, tile)
         outline_raw = _outline_paths(lab_raw, tile)
+        
+        # PRE-COMPUTE per-label outlines for ALL labels (for instant selected-only mode)
+        # This is done ONCE during geometry computation, not on every overlay request
+        unique_labels = np.unique(labels_at_centroids)
+        unique_labels = unique_labels[unique_labels > 0].tolist()
+        
+        LOGGER.info(f"Pre-computing per-label outlines for {len(unique_labels)} labels...")
+        per_label_nuclei_outlines = _outline_paths_per_label(lab_raw, tile, labels=unique_labels)
+        per_label_expanded_outlines = _outline_paths_per_label(lab_exp, tile, labels=unique_labels)
+        LOGGER.info(f"Per-label outlines computed: {len(per_label_nuclei_outlines)} nuclei, {len(per_label_expanded_outlines)} expanded")
 
         entry = {
             "tile": tile,
@@ -1872,6 +1882,9 @@ class Plugin:
             "centroid_cols": cols_abs,
             "labels_at_centroids": labels_at_centroids,
             "geometry_key": geom_key,  # NEW: Store for ColorCache linking
+            # PRE-COMPUTED per-label outlines (for instant selected-only mode)
+            "per_label_nuclei_outlines": per_label_nuclei_outlines,
+            "per_label_expanded_outlines": per_label_expanded_outlines,
         }
         
         # Cache in geometry cache
@@ -1950,6 +1963,9 @@ class Plugin:
             geometry_key = geometry_entry.get("geometry_key")
             
             # STEP 2: Check color cache
+            import time
+            t0 = time.time()
+            
             color_cache = self._state.get("color_cache")
             if color_cache is None:
                 color_cache = ColorCache(max_items=200)
@@ -1970,10 +1986,11 @@ class Plugin:
             
             cached_colors = color_cache.get(color_key)
             if cached_colors is not None:
-                LOGGER.debug(f"ColorCache HIT for tile {tile_id}, overlay_type={overlay_type}")
+                LOGGER.info(f"⚡ ColorCache HIT for tile {tile_id}, overlay_type={overlay_type}")
                 colored_overlay = cached_colors
             else:
-                LOGGER.debug(f"ColorCache MISS for tile {tile_id}, computing colors...")
+                LOGGER.info(f"🔄 ColorCache MISS for tile {tile_id}, computing colors...")
+                t1 = time.time()
                 
                 # Compute colors (fast: <50ms)
                 if overlay_type == "gene":
@@ -1983,9 +2000,12 @@ class Plugin:
                 else:
                     raise ValueError(f"Unknown overlay_type '{overlay_type}'")
                 
+                t2 = time.time()
+                LOGGER.info(f"✅ Color computation took {(t2-t1)*1000:.1f}ms")
+                
                 # Cache the colored overlay
                 color_cache.set(color_key, colored_overlay)
-                LOGGER.debug(f"ColorCache stored for tile {tile_id}")
+                LOGGER.info(f"ColorCache stored for tile {tile_id}")
 
             # STEP 3: Build final response with all parameters
             payload = {
@@ -2151,18 +2171,17 @@ class Plugin:
             per_label_expanded_outlines: Dict[int, List] = {}
             if include_geometry:
                 # Get labels that will be shown
-                shown_labels = list(label_expr.keys())
+                shown_labels = set(label_expr.keys())
                 
-                # Generate nuclei outlines per label
-                lab_raw = entry.get("lab_raw")
-                if lab_raw is not None:
-                    per_label_nuclei_outlines = _outline_paths_per_label(lab_raw, entry["tile"], labels=shown_labels)
-                    LOGGER.info(f"Generated nuclei outlines for {len(per_label_nuclei_outlines)} labels")
+                # Use PRE-CACHED per-label outlines from geometry (instant lookup!)
+                cached_nuclei = entry.get("per_label_nuclei_outlines", {})
+                cached_expanded = entry.get("per_label_expanded_outlines", {})
                 
-                # Generate expanded outlines per label
-                if lab_exp is not None:
-                    per_label_expanded_outlines = _outline_paths_per_label(lab_exp, entry["tile"], labels=shown_labels)
-                    LOGGER.info(f"Generated expanded outlines for {len(per_label_expanded_outlines)} labels")
+                # Filter to only shown labels (instant, just dict lookups)
+                per_label_nuclei_outlines = {lbl: cached_nuclei.get(lbl, []) for lbl in shown_labels if lbl in cached_nuclei}
+                per_label_expanded_outlines = {lbl: cached_expanded.get(lbl, []) for lbl in shown_labels if lbl in cached_expanded}
+                
+                LOGGER.debug(f"Using cached outlines: {len(per_label_nuclei_outlines)} nuclei, {len(per_label_expanded_outlines)} expanded")
             
             features = []
             for lbl, expr_value in label_expr.items():
@@ -2256,6 +2275,9 @@ class Plugin:
                 "polygons_raw": polygons_raw,
                 "outline_exp": entry["outline_exp"],
                 "outline_raw": entry["outline_raw"],
+                # Per-label outlines for selected-only mode
+                "per_label_nuclei": entry.get("per_label_nuclei_outlines", {}),
+                "per_label_expanded": entry.get("per_label_expanded_outlines", {}),
             }
 
         payload: Dict = {
@@ -2363,18 +2385,17 @@ class Plugin:
         per_label_expanded_outlines: Dict[int, List] = {}
         if include_geometry:
             # Get labels that will be shown
-            shown_labels = list(label_to_cat.keys())
+            shown_labels = set(label_to_cat.keys())
             
-            # Generate nuclei outlines per label
-            lab_raw = entry.get("lab_raw")
-            if lab_raw is not None:
-                per_label_nuclei_outlines = _outline_paths_per_label(lab_raw, entry["tile"], labels=shown_labels)
-                LOGGER.info(f"[OBS] Generated nuclei outlines for {len(per_label_nuclei_outlines)} labels")
+            # Use PRE-CACHED per-label outlines from geometry (instant lookup!)
+            cached_nuclei = entry.get("per_label_nuclei_outlines", {})
+            cached_expanded = entry.get("per_label_expanded_outlines", {})
             
-            # Generate expanded outlines per label
-            if lab_exp is not None:
-                per_label_expanded_outlines = _outline_paths_per_label(lab_exp, entry["tile"], labels=shown_labels)
-                LOGGER.info(f"[OBS] Generated expanded outlines for {len(per_label_expanded_outlines)} labels")
+            # Filter to only shown labels (instant, just dict lookups)
+            per_label_nuclei_outlines = {lbl: cached_nuclei.get(lbl, []) for lbl in shown_labels if lbl in cached_nuclei}
+            per_label_expanded_outlines = {lbl: cached_expanded.get(lbl, []) for lbl in shown_labels if lbl in cached_expanded}
+            
+            LOGGER.debug(f"[OBS] Using cached outlines: {len(per_label_nuclei_outlines)} nuclei, {len(per_label_expanded_outlines)} expanded")
         
         features = []
         for lbl, cat in label_to_cat.items():
@@ -2423,6 +2444,9 @@ class Plugin:
                 "polygons_raw": polygons_raw,
                 "outline_exp": entry["outline_exp"],
                 "outline_raw": entry["outline_raw"],
+                # Per-label outlines for selected-only mode
+                "per_label_nuclei": entry.get("per_label_nuclei_outlines", {}),
+                "per_label_expanded": entry.get("per_label_expanded_outlines", {}),
             }
 
         payload: Dict = {

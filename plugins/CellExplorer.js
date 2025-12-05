@@ -1413,19 +1413,43 @@ Bin2CellExplorer.inflateGeometry = function (data) {
     result.nuclei_outline = geom.outline_raw || [];
   }
 
+  // Per-label outlines cache (for selected-only mode)
+  const perLabelNuclei = geom.per_label_nuclei || {};
+  const perLabelExpanded = geom.per_label_expanded || {};
+
   if (result.overlay_type === "gene") {
     (result.overlays || []).forEach(function (overlay) {
       (overlay.features || []).forEach(function (feature) {
-        if (feature.polygons && feature.polygons.length) return;
-        const polys = (polySource && polySource[feature.label]) || [];
-        feature.polygons = polys;
+        // Restore polygons
+        if (!feature.polygons || !feature.polygons.length) {
+          const polys = (polySource && polySource[feature.label]) || [];
+          feature.polygons = polys;
+        }
+        // Restore per-feature nuclei outlines
+        if (!feature.nuclei_outline_paths || !feature.nuclei_outline_paths.length) {
+          feature.nuclei_outline_paths = perLabelNuclei[feature.label] || [];
+        }
+        // Restore per-feature expanded outlines
+        if (!feature.expanded_outline_paths || !feature.expanded_outline_paths.length) {
+          feature.expanded_outline_paths = perLabelExpanded[feature.label] || [];
+        }
       });
     });
   } else if (result.overlay_type === "observation") {
     (result.features || []).forEach(function (feature) {
-      if (feature.polygons && feature.polygons.length) return;
-      const polys = (polySource && polySource[feature.label]) || [];
-      feature.polygons = polys;
+      // Restore polygons
+      if (!feature.polygons || !feature.polygons.length) {
+        const polys = (polySource && polySource[feature.label]) || [];
+        feature.polygons = polys;
+      }
+      // Restore per-feature nuclei outlines
+      if (!feature.nuclei_outline_paths || !feature.nuclei_outline_paths.length) {
+        feature.nuclei_outline_paths = perLabelNuclei[feature.label] || [];
+      }
+      // Restore per-feature expanded outlines
+      if (!feature.expanded_outline_paths || !feature.expanded_outline_paths.length) {
+        feature.expanded_outline_paths = perLabelExpanded[feature.label] || [];
+      }
     });
   }
   return result;
